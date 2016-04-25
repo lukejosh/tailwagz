@@ -16,9 +16,13 @@ function templatemo_map() {
 function validate_password() {
     var password = document.getElementById("password")
     var confPass = document.getElementById("confpassword")
-    console.log("hello")
+
     if (password.value != confPass.value) {
-        confPass.setCustomValidity("Passwords Do Not Match");
+        confPass.setCustomValidity("Passwords Don't Match");
+    }
+
+    else if (password.value.match(/\d+/g) == null) {
+        confPass.setCustomValidity("Passwords must contain a digit")
     }
     else {
         confPass.setCustomValidity('')
