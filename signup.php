@@ -19,7 +19,7 @@
 				<input type="number" name="phone" id="phone" placeholder="phone number" required>
 				<input type="password" name="password" id="password" placeholder="Password" required>
 				<input type="password" name="confpassword" id="confpassword" placeholder="Confirm Password" onchange="validate_password();" required>
-				<input type="submit" name="signup" id="signup">
+				<input type="submit" class="submit_button" name="signup" id="signup" value="sign up">
 			</form>
 		</div>
 		<?php include 'components/footer.inc'; ?>

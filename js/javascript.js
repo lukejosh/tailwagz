@@ -28,3 +28,21 @@ function validate_password() {
         confPass.setCustomValidity('')
     }
 }
+
+
+src="https://maps.googleapis.com/maps/api/js";
+
+function initMap(latitude, longitude, parktitle) {
+        var myLatLng = {lat: latitude, lng: longitude};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: parktitle
+        });
+      }

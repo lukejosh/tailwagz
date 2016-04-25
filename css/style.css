@@ -49,7 +49,8 @@ p a:hover {
 	display: block;
 	margin: 0 auto;
 	padding: 0;
-	width: 340px;
+	width: 300px;
+	width: 250px;
 }
 #header a.logo img {
 	border: 0;
@@ -330,7 +331,7 @@ p a:hover {
 	overflow: auto;
 	resize: none;
 }
-#body form #signup {
+#body form .submit_button {
 	background: #252525;
 	color: #fff;
 	font-family: "Arial Black", Gadget, sans-serif;
@@ -340,7 +341,7 @@ p a:hover {
 	padding: 20px 28px;
 	width: auto;
 }
-#body form #signup:hover {
+#body form .submit_button:hover {
 	background: #fff;
 	color: #252525;
 	cursor: pointer;

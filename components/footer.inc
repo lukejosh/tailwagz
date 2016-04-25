@@ -1,18 +1,18 @@
 <div id="footer">
 		<div>
-			<p>&copy; 2023 by Mustacchio. All rights reserved.</p>
+			<p>&copy; 2016 by TailsWagz. All rights reserved.</p>
 			<ul>
 				<li>
-					<a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a>
+					<a href="http://www.facebook.com/tailwagz" id="twitter">twitter</a>
 				</li>
 				<li>
-					<a href="http://freewebsitetemplates.com/go/facebook/" id="facebook">facebook</a>
+					<a href="http://www.twitter.com/tailwagz" id="facebook">facebook</a>
 				</li>
 				<li>
-					<a href="http://freewebsitetemplates.com/go/googleplus/" id="googleplus">googleplus</a>
+					<a href="http://www.googleplus.com/tailwagz" id="googleplus">googleplus</a>
 				</li>
 				<li>
-					<a href="http://pinterest.com/fwtemplates/" id="pinterest">pinterest</a>
+					<a href="http://www.pinterest.com/tailwagz" id="pinterest">pinterest</a>
 				</li>
 			</ul>
 		</div>
