@@ -12,3 +12,15 @@ function templatemo_map() {
                     }
                 });
             }
+
+function validate_password() {
+    var password = document.getElementById("password")
+    var confPass = document.getElementById("confpassword")
+    console.log("hello")
+    if (password.value != confPass.value) {
+        confPass.setCustomValidity("Passwords Do Not Match");
+    }
+    else {
+        confPass.setCustomValidity('')
+    }
+}
