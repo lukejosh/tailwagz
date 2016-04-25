@@ -11,53 +11,54 @@
 	<body>
 		<?php include 'components/header.inc'; ?>
 		<div id="body">
-			<div id="featured">
-				<img src="images/the-beacon.jpg" alt="">
+			<div id="homepage">
+				<img src="images/homepage.jpg" alt="">
 				<div>
-					<h2>the beacon to all mankind</h2>
-					<span>Our website templates are created with</span>
-					<span>inspiration, checked for quality and originality</span>
-					<span>and meticulously sliced and coded.</span>
-					<a href="blog-single-post.html" class="more">read more</a>
+					<h2>The dog park reviewer</h2>
+					<span>A central hub to search and review dog park</span>
+					<span>facilities in and around Brisbane, Australia.</span><br>
+					<a href="search.php" class="more">search</a>
+					<a href="login.php" class="more">log in</a>
+					<a href="signup.php" class="more">sign up</a>
 				</div>
 			<br><h1><span>Popular Categories</span></h1>
-			</div>
+			</div id="categories">
 				<ul>
 					<li>
-						<a href="gallery.html">
-							<img src="images/the-father.jpg" alt="">
+						<a href="results.php">
+							<img src="images/dog-beach.jpg" alt="">
 							<span>Beach</span>
 						</a>
 					</li>
 					<li>
-						<a href="gallery.html">
-							<img src="images/the-actor.jpg" alt="">
-							<span>Facilities</span>
+						<a href="results.php">
+							<img src="images/dog-friendly.jpg" alt="">
+							<span>Friendly</span>
 						</a>
 					</li>
 					<li>
-						<a href="gallery.html">
-							<img src="images/the-nerd.jpg" alt="">
+						<a href="results.php">
+							<img src="images/dog-training.jpg" alt="">
 							<span>Training</span>
 						</a>
 					</li>
 				</ul>
 				<ul>
 					<li>
-						<a href="gallery.html">
-							<img src="images/the-father.jpg" alt="">
+						<a href="results.php">
+							<img src="images/dog-quiet.jpg" alt="">
 							<span>Quiet</span>
 						</a>
 					</li>
 					<li>
-						<a href="gallery.html">
-							<img src="images/the-actor.jpg" alt="">
+						<a href="results.php">
+							<img src="images/dog-busy.jpg" alt="">
 							<span>Busy</span>
 						</a>
 					</li>
 					<li>
-						<a href="gallery.html">
-							<img src="images/the-nerd.jpg" alt="">
+						<a href="results.php">
+							<img src="images/dog-big.jpg" alt="">
 							<span>Big</span>
 						</a>
 					</li>

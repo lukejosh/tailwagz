@@ -12,7 +12,7 @@
 		<?php include 'components/header.inc'; ?>
 		<div id="body">
 			<h1><span>Search</span></h1>
-			<form action="signup.php">
+			<form action="search.php">
 				<input type="text" name="search" id="search" value="search">
 				<input type="submit" name="signup" id="signup" value="search">
 			</form>
