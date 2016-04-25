@@ -15,11 +15,11 @@
 			<form action="signup.php">
 				<input type="text" name="firstname" id="firstname" placeholder="First Name" required>
 				<input type="text" name="surname" id="surname" placeholder="Last Name" required>
-				<input type="email" name="email" id="email" placeholder="E-Mail Address">
+				<input type="email" name="email" id="email" placeholder="E-Mail Address" required>
 				<input type="number" name="phone" id="phone" placeholder="phone number" required>
 				<input type="password" name="password" id="password" placeholder="Password" required>
 				<input type="password" name="confpassword" id="confpassword" placeholder="Confirm Password" onchange="validate_password();" required>
-				<input type="submit" name="signup" id="signup" placeholder="sign up">
+				<input type="submit" name="signup" id="signup">
 			</form>
 		</div>
 		<?php include 'components/footer.inc'; ?>
