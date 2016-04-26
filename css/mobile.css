@@ -109,14 +109,14 @@ body {
 	font-size: 18px;
 	font-weight: bold;
 }
-#body #featured {
+#body #homepage {
 	overflow: hidden;
 	margin: 0 0 20px
 }
-#body #featured img {
+#body #homepage img {
 	min-width: 960px;
 }
-#body #featured div {
+#body #homepage div {
 	left: 0;
 	margin: 0;
 	padding: 0 2%;
@@ -125,19 +125,19 @@ body {
 	text-align: left;
 	width: 96%;
 }
-#body #featured div h2 {
+#body #homepage div h2 {
 	font-size: 14px;
 	font-weight: normal;
 	margin: 50px 0 10px;
 	padding: 8px 5px;
 }
-#body #featured div span {
+#body #homepage div span {
 	display: block;
 	font-size: 14px;
 	margin: 10px 0;
 	padding: 10px;
 }
-#body #featured div a {
+#body #homepage div a {
 	font-size: 14px;
 	margin: 5px 0 0;
 	padding: 10px;

@@ -1,16 +1,13 @@
 <div id="header">
 		<a href="index.php" class="logo">
-			<img src="images/logo1.bmp" alt="">
+			<img src="images/logo.png" alt="">
 		</a>
 		<ul id="navigation">
-			<li class="selected">
+			<li>
 				<a href="index.php">home</a>
 			</li>
 			<li>
 				<a href="search.php">search</a>
-			</li>
-			<li>
-				<a href="browse.php">browse</a>
 			</li>
 			<li>
 				<a href="login.php">log in</a>

@@ -6,25 +6,28 @@
 		<title>Dog Park Reviews</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
-		<script type="text/javascript" src="js/javascript.js"></script>		
-		<script src="http://maps.googleapis.com/maps/api/js"></script>
+		<script type="text/javascript" src="js/javascript.js"></script>	
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIr2_wRZyXYr8wsA3vdXk50J0OMti4oA&signed_in=false&callback=initMap">
+		</script>		
 	</head>
 	<body>
 		<?php include 'components/header.inc'; ?>
-		<div id="body" onload="initMap(-27.38123113, 153.0436597, 7TH BRIGADE PARK)">
-			<h1><span>Item</span></h1>
-			<div>
-			<div id="map" ></div>
+		<div id="body" onload="initMap()">
+			<h1><span>7TH BRIGADE PARK</span></h1>
 			<div class="article">
-				<h2>7TH BRIGADE PARK</h2>
-				<p>
+				<p><br>
 				Dog Park Name: REINHOLD CRES DOG OFF LEASH AREA<br>
 				Park Code: D0228<br>
 				Street: HAMILTON RD<br>
 				Suburb: CHERMSIDE<br>
 				Size: 10000m^2<br>
-				Location: -27.38123113,153.0436597<br>
+				Rating: 7/10 Stars 
 				</p>
+			</div>
+			<div id="googleMap"></div>
+			<div class="reviews">
+				<h2>Reviews</h2>
 			</div>
 		</div>
 		<?php include 'components/footer.inc'; ?>

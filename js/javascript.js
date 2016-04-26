@@ -29,20 +29,27 @@ function validate_password() {
     }
 }
 
+function initMap() {
+	var myLatLng = {lat: -27.38123113, lng: 153.0436597};
 
-src="https://maps.googleapis.com/maps/api/js";
+	var map = new google.maps.Map(document.getElementById('googleMap'), {
+	  zoom: 15,
+	  center: myLatLng,
+	  mapTypeId: google.maps.MapTypeId.SATELLITE
+	});
+	
+	var contentString = "7th Brigade Park";
+	
+	var infowindow = new google.maps.InfoWindow({
+		content: contentString
+	});
 
-function initMap(latitude, longitude, parktitle) {
-        var myLatLng = {lat: latitude, lng: longitude};
-
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: myLatLng
-        });
-
-        var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: parktitle
-        });
-      }
+	var marker = new google.maps.Marker({
+		position: myLatLng,
+		map: map,
+		title: '7TH BRIGADE PARK'
+	});
+	marker.addListener('click', function() {
+		infowindow.open(map, marker);
+	});
+}

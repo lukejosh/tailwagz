@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Dog Park Reviews</title>
+		<title>TailWagz</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
 		<script type="text/javascript" src="js/javascript.js"></script>		
@@ -14,9 +14,9 @@
 			<div id="homepage">
 				<img src="images/homepage.jpg" alt="">
 				<div>
-					<h2>The dog park reviewer</h2>
-					<span>A central hub to search and review dog park facilities</span>
-					<span>in and around Brisbane, Australia.</span><br>
+					<h2>TailWagz</h2>
+					<span>A central hub to search and review dog park facilities in and around Brisbane, Australia.</span>
+					<br>
 					<a href="search.php" class="more">search</a>
 					<a href="login.php" class="more">log in</a>
 					<a href="signup.php" class="more">sign up</a>

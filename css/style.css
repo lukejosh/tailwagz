@@ -27,13 +27,13 @@ body {
 	padding: 0;
 }
 p {
-	color: #252525;
+	color: #540B2C;
 	line-height: 24px;
 	margin: 0;
 	padding: 0;
 }
 p a {
-	color: #252525;
+	color: #540B2C;
 	text-decoration: underline;
 }
 p a:hover {
@@ -50,13 +50,14 @@ p a:hover {
 	margin: 0 auto;
 	padding: 0;
 	width: 300px;
-	width: 250px;
 }
 #header a.logo img {
 	border: 0;
 	display: block;
 	margin: 0;
 	padding: 0;
+	width: 100%;
+    height: auto;
 }
 #header ul {
 	margin: 0;
@@ -69,7 +70,7 @@ p a:hover {
 	padding: 0 19px;
 }
 #header ul li a {
-	color: #252525;
+	color: #540B2C;
 	display: inline-block;
 	font-family: "Arial Black", Gadget, sans-serif;
 	font-size: 14px;
@@ -80,7 +81,7 @@ p a:hover {
 	text-transform: uppercase;
 }
 #header ul li a:hover, #header ul li.selected a {
-	color: #0ba39c;
+	color: #4DBD33;
 }
 #body {
 	margin: 0;
@@ -98,7 +99,7 @@ p a:hover {
 	text-transform: uppercase;
 }
 #body h1 span {
-	background: #252525;
+	background: #540B2C;
 	display: inline-block;
 	padding: 15px 28px 12px;
 }
@@ -124,13 +125,13 @@ p a:hover {
 	margin: 0 0 30px;
 }
 #body > div .article h3 {
-	color: #252525;
+	color: #540B2C;
 	line-height: 24px;
 	margin: 0;
 	padding: 0;
 }
 #body > div .article h4 {
-	background: #252525;
+	background: #540B2C;
 	color: #fff;
 	display: inline-block;
 	font-family: "Arial Black", Gadget, sans-serif;
@@ -180,7 +181,7 @@ p a:hover {
 	width: 558px;
 }
 #body div ul li div h3 {
-	color: #252525;
+	color: #540B2C;
 	font-family: "Arial Black", Gadget, sans-serif;
 	font-size: 25px;
 	font-weight: normal;
@@ -204,10 +205,30 @@ p a:hover {
 	text-transform: uppercase;
 }
 #body div ul li div a.more:hover {
-	color: #252525;
+	color: #540B2C;
 	background: #fff;
-	border: 2px solid #252525;
+	border: 2px solid #540B2C;
 }
+
+#body #googleMap {
+		margin: 30px auto;
+		display: block;
+		width: 500px;
+		height: 300px;
+      }
+
+#body > div .reviews {
+	margin: 0 auto;
+	padding: 30px 30px 0;
+	width: 560px;
+}
+#body > div .reviews h2 {
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 25px;
+	font-weight: normal;
+	margin: 0 0 30px;
+}
+
 #body #homepage {
 	margin: 0 0 13px;
 	padding: 0;
@@ -224,7 +245,7 @@ p a:hover {
 #body #homepage div {
 	left: 50%;
 	margin-left: -480px;
-	margin-top: -400px;
+	margin-top: -350px;
 	padding: 0 0 0 470px;
 	position: absolute;
 	top: 50%;
@@ -243,7 +264,7 @@ p a:hover {
 	text-transform: uppercase;
 }
 #body #homepage div span {
-	background: #252525;
+	background: #540B2C;
 	color: #fff;
 	display: inline-block;
 	font-size: 20px;
@@ -251,7 +272,7 @@ p a:hover {
 	padding: 12px 27px;
 }
 #body #homepage div a {
-	background: #0ba39c;
+	background: #4DBD33;
 	color: #fff;
 	display: inline-block;
 	font-size: 16px;
@@ -315,8 +336,8 @@ p a:hover {
 	width: 620px;
 }
 #body form input, #body form textarea {
-	border: 2px solid #252525;
-	color: #252525;
+	border: 2px solid #540B2C;
+	color: #540B2C;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 15px;
 	font-weight: normal;
@@ -332,7 +353,7 @@ p a:hover {
 	resize: none;
 }
 #body form .submit_button {
-	background: #252525;
+	background: #540B2C;
 	color: #fff;
 	font-family: "Arial Black", Gadget, sans-serif;
 	font-size: 15px;
@@ -343,11 +364,11 @@ p a:hover {
 }
 #body form .submit_button:hover {
 	background: #fff;
-	color: #252525;
+	color: #540B2C;
 	cursor: pointer;
 }
 #footer {
-	background: #252525;
+	background: #540B2C;
 	margin: 0;
 	padding: 36px 0 42px;
 }
