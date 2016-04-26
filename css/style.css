@@ -335,15 +335,10 @@ p a:hover {
 	padding: 24px 0 0;
 	width: 620px;
 }
-<<<<<<< HEAD
+
 #body form input, #body form textarea {
 	border: 2px solid #540B2C;
 	color: #540B2C;
-=======
-#body form input, #body form textarea{
-	border: 2px solid #252525;
-	color: #252525;
->>>>>>> c3f7abb9814e5c785a42b6e2d7eba8a143680142
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 15px;
 	font-weight: normal;
