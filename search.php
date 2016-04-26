@@ -13,7 +13,7 @@
 		<div id="body">
 
 			<h1><span>Search</span></h1>
-			<form action="search.php">
+			<form action="results.php">
 					<select name="suburb" id="suburb" onchange="revert_other_searches('suburb')">
 						<option>Suburb</option>
 						<option value="dogsville"> Dogsville</option>
