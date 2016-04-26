@@ -11,9 +11,17 @@
 	<body>
 		<?php include 'components/header.inc'; ?>
 		<div id="body">
+
 			<h1><span>Search</span></h1>
 			<form action="search.php">
-				<input type="text" name="search" id="search" value="search">
+					<select name="suburb">
+						<option selected="selected">Suburb</option>
+						<option value="dogsville"> Dogsville</option>
+						<option value="puppingham"> Puppingham</option>					
+						<option value="woofburg"> Woofburg</option>
+						<option value="northbark"> North Bark</option>
+					</select>
+				<input type="text" name="search" id="search" placeholder="search"><br>
 				<input type="submit" class="submit_button" id="search_btn" value="search">
 			</form>
 		</div>
