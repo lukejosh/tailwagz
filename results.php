@@ -12,7 +12,34 @@
 		<?php include 'components/header.inc'; ?>
 		<div id="body">
 			<h1><span>Results</span></h1>
-			
+			<div class="results">
+				<table>
+					<tr>
+					  <th>Name</th>
+					  <th>Location</th>
+					  <th>Tags</th>
+					  <th>Rating</th>
+					</tr>
+					<tr >
+						  <td><a href="item.php">7TH BRIGADE PARK<a></td>
+						  <td><a href="item.php">HAMILTON RD,CHERMSIDE<a></td>
+						  <td><a href="item.php">Busy, Friendly<a></td>
+						  <td><a href="item.php">8<a></td>
+					</tr>
+					<tr >
+						  <td><a href="item.php">ABBEVILLE STREET PARK<a></td>
+						  <td><a href="item.php">ABBEVILLE ST,UPR MT GRAVATT<a></td>
+						  <td><a href="item.php">Quiet<a></td>
+						  <td><a href="item.php">2<a></td>
+					</tr>
+					<tr >
+						  <td><a href="item.php">ALBERT BISHOP PARK<a></td>
+						  <td><a href="item.php">HEDLEY AVE,NUNDAH<a></td>
+						  <td><a href="item.php">Big, Training<a></td>
+						  <td><a href="item.php">5<a></td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<?php include 'components/footer.inc'; ?>
 	</body>

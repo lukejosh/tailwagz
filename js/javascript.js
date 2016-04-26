@@ -35,7 +35,7 @@ function initMap() {
 	var map = new google.maps.Map(document.getElementById('googleMap'), {
 	  zoom: 15,
 	  center: myLatLng,
-	  mapTypeId: google.maps.MapTypeId.SATELLITE
+	  mapTypeId: google.maps.MapTypeId.HYBRID
 	});
 	
 	var contentString = "7th Brigade Park";

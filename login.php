@@ -15,7 +15,7 @@
 			<form action="login.php">
 				<input type="email" name="email" id="email" placeholder="E-Mail Address" required>
 				<input type="password" name="password" id="password" placeholder="Password" required>
-				<input type="submit" class="submit_button" name="login" id="login" value="login in">
+				<input type="submit" class="submit_button" name="login" id="login" value="log in">
 			</form>
 		</div>
 		<?php include 'components/footer.inc'; ?>

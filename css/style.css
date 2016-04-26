@@ -109,17 +109,19 @@ p a:hover {
 	width: 960px;
 }
 #body > div img {
-	border: 2px solid #292929;
+	border: 2px solid #540B2C;
 	margin: 24px 0 0;
 	padding: 0;
 }
 #body > div .article {
 	margin: 0 auto;
+	font-family: "Arial Black", Gadget, sans-serif;
 	padding: 30px 30px 0;
 	width: 560px;
 }
 #body > div .article h2 {
-	font-family: "Arial Black", Gadget, sans-serif;
+	color: #540B2C;
+	
 	font-size: 25px;
 	font-weight: normal;
 	margin: 0 0 30px;
@@ -130,9 +132,9 @@ p a:hover {
 	margin: 0;
 	padding: 0;
 }
-#body > div .article h4 {
+#body > div .item h4 {
 	background: #540B2C;
-	color: #fff;
+	color: #540B2C;
 	display: inline-block;
 	font-family: "Arial Black", Gadget, sans-serif;
 	font-size: 25px;
@@ -140,9 +142,55 @@ p a:hover {
 	margin: 0 0 30px;
 	padding: 8px 27px 10px;
 }
-#body > div .article p {
-	margin: 0 0 30px;
+
+<!--Specific to Single Items page-->
+#body .item {
+	margin: auto auto 0px;
+	width: 450px;
 }
+#body .item p {
+	width: 450px;
+	margin: auto auto 0px;
+	font-family: "Arial Black", Gadget, sans-serif;
+	text-align: left;
+}
+#body .reviews {
+	margin: auto auto 0px;
+	width: 450px;
+}
+#body .reviews p{
+	margin: auto auto 0px;
+	color: #540B2C;
+	font-family: "Arial Black", Gadget, sans-serif;
+	display: block;
+}
+
+#body .results {
+	margin-top: 30px;
+	width: 550px;
+}
+#body .results table{
+	border-collapse: collapse;
+}
+#body .results table,th,td {
+	margin: auto auto 0px;
+	border: 1px solid #540B2C;
+}
+#body .results table tr td {
+	padding: 10px 1px; 
+	color: #540B2C;
+	font-family: "Arial Black", Gadget, sans-serif;
+}
+#body .results table tr td a {
+	color: #540B2C;
+	text-decoration: none;
+}
+#body .results table tr th {
+	padding: 10px 5px;
+	color: #fff;
+	background: #540B2C;
+}
+
 #body div ul {
 	margin: 0;
 	padding: 24px 10px 0;
@@ -193,7 +241,7 @@ p a:hover {
 	padding: 30px 30px 18px;
 }
 #body div ul li div a.more {
-	background: #000;
+	background: #540B2C;
 	color: #fff;
 	display: inline-block;
 	font-family: "Arial Black", Gadget, sans-serif;
@@ -223,6 +271,7 @@ p a:hover {
 	width: 560px;
 }
 #body > div .reviews h2 {
+	color: #540B2C;
 	font-family: "Arial Black", Gadget, sans-serif;
 	font-size: 25px;
 	font-weight: normal;
@@ -254,7 +303,7 @@ p a:hover {
 }
 #body #homepage div h2 {
 	background: #fff;
-	color: #000;
+	color: #540B2C;
 	display: inline-block;
 	font-family: poller_oneregular;
 	font-size: 20px;
@@ -299,7 +348,7 @@ p a:hover {
 	width: 300px;
 }
 #body > ul li a {
-	color: #000;
+	color: #540B2C;
 	display: block;
 	width: auto;
 	font-family: poller_oneregular;
