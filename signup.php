@@ -21,15 +21,11 @@
 				<input type="password" name="confpassword" id="confpassword" placeholder="Confirm Password" onchange="validate_password();" required>
 				<input type="date" class="date" placeholder="02/02/1996" required>
 				<fieldset>
-					<div class="radiobuttons">
-						<label for="male">
-							<input type="radio" name="gender", class="radio" value="male" id="male"/>
-							Male
-						</label>
-						<label for="female">
-							<input type="radio" name="gender", class="radio" value="female" id="female">
-							Female
-						</label>
+					<div id="rbuttons">
+						<input class="radio-input" type="radio" name="gender" value="male" />
+						<label class="radio-label">Male</label>
+						<input class="radio-input" type="radio" name="gender" value="female" />
+						<label class="radio-label">Female</label>
 					</div>
 				</fieldset>
 				<input type="submit" class="submit_button" name="signup" id="signup" value="sign up">
