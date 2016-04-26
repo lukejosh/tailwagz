@@ -293,7 +293,7 @@ p a:hover {
 #body > ul li a img {
 	border: 2px solid #1a1a1a;
 	width: 300px;
-    height: 200px;
+	height: 200px;
 	display: block;
 	margin: 0;
 	padding: 0;
@@ -314,7 +314,7 @@ p a:hover {
 	padding: 24px 0 0;
 	width: 620px;
 }
-#body form input, #body form textarea {
+#body form input, #body form textarea, #body form select{
 	border: 2px solid #252525;
 	color: #252525;
 	font-family: Arial, Helvetica, sans-serif;
@@ -346,6 +346,30 @@ p a:hover {
 	color: #252525;
 	cursor: pointer;
 }
+#body form .searchfield {
+	border: 2px solid #252525;
+	color: #252525;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: normal;
+	margin: 0 0 37px;
+	padding: 20px 10px;
+	text-align: center;
+	text-transform: uppercase;
+	width: 298px;
+}
+
+#body .suburbselect select{
+	border: 2px solid #252525;
+	color: #252525;
+	font-size: 16px;
+	width: 298px;
+	margin: 0 0 37px;
+	background-color: white;
+	text-align: center;
+	align-items: stretch;
+}
+
 #footer {
 	background: #252525;
 	margin: 0;

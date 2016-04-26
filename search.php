@@ -13,7 +13,15 @@
 		<div id="body">
 			<h1><span>Search</span></h1>
 			<form action="search.php">
-				<input type="text" name="search" id="search" value="search">
+				<div class="suburbselect">
+					<select name="suburb">
+						<option value="dogsville"> Dogsville</option>
+						<option value="puppingham"> Puppingham</option>					
+						<option value="woofburg"> Woofburg</option>
+						<option value="northbark"> North Bark</option>
+					</select>
+				</div>
+				<input type="text" name="search" class="searchfield" id="search" placeholder="search"><br>
 				<input type="submit" class="submit_button" id="search_btn" value="search">
 			</form>
 		</div>
