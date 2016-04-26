@@ -53,3 +53,19 @@ function initMap() {
 		infowindow.open(map, marker);
 	});
 }
+
+function revert_other_searches(keepid){
+    var elements = document.forms[0].elements;
+
+    for(i = 0; i < elements.length; i++){
+        if(elements[i].type != "submit" && elements[i].id != keepid){
+            console.log(elements[i].type)
+            if(elements[i].type == "select-one"){
+                elements[i].value = elements[i][0].value;
+            }
+            else if(elements[i].type == "text"){
+                elements[i].value = null;
+            }
+        }
+    }
+}

@@ -19,6 +19,15 @@
 				<input type="number" name="phone" id="phone" placeholder="phone number" required>
 				<input type="password" name="password" id="password" placeholder="Password" required>
 				<input type="password" name="confpassword" id="confpassword" placeholder="Confirm Password" onchange="validate_password();" required>
+				<input type="date" class="date" placeholder="02/02/1996" required>
+				<fieldset>
+					<div id="rbuttons">
+						<input class="radio-input" type="radio" name="gender" value="male" />
+						<label class="radio-label">Male</label>
+						<input class="radio-input" type="radio" name="gender" value="female" />
+						<label class="radio-label">Female</label>
+					</div>
+				</fieldset>
 				<input type="submit" class="submit_button" name="signup" id="signup" value="sign up">
 			</form>
 		</div>

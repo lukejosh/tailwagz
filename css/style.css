@@ -407,7 +407,6 @@ p a:hover {
 	background: white;
 	padding: 20px 10px;
 	margin: 0 0 37px;
-	/*text-align: center;*/
 	font-weight: normal;
 	font-size: 15px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -462,6 +461,33 @@ p a:hover {
 	background-color: white;
 	text-align: center;
 	align-items: stretch;
+}
+#body .radio-label{
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 3%;
+}
+#body  .radio-input{
+	width: 40px;
+	display: inline-block;
+	vertical-align: top;
+}
+#body fieldset {
+	text-align: center;
+	border: 2px solid #252525;
+	margin: 0 0 37px;
+	padding: 20px 10px;
+	height: 20px;
+}
+#body #rbuttons{
+	display: inline-block;
+	white-space: nowrap;
+	color: #540B2C;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: normal;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 #footer {
