@@ -30,7 +30,9 @@
 						<option value="5">>4 Stars</option>
 					</select>
 				<input type="text" name="search" id="search" placeholder="search" onchange="revert_other_searches('search')">
+				<button type="button" class="submit_button" onclick="latlon()">NEAR ME</button>
 				<input type="submit" class="submit_button" id="search_btn" value="search">
+				
 			</form>
 		</div>
 		<?php include 'components/footer.inc'; ?>
