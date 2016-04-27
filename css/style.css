@@ -1,6 +1,4 @@
-/*** uncss> filename: css/style.css ***/
-
-/* Website Template by freewebsitetemplates.com */
+/*======================HEADER=================*/
 #header {
   margin: 0 auto;
   padding: 44px 0 50px;
@@ -45,6 +43,8 @@
 #header ul li a:hover, #header ul li.selected a {
   color: #4DBD33;
 }
+
+/*====================FOOTER===================*/
 #footer {
   background: #540B2C;
   margin: 0;
@@ -112,6 +112,8 @@
 #footer div ul li #pinterest:hover {
   background-position: -44px -132px;
 }
+
+/*================FONTS=======================*/
 @font-face {
   font-family: 'poller_oneregular';
   src: url('../fonts/pollerone/pollerone-webfont.eot');
@@ -129,6 +131,8 @@
 		 url('../fonts/leckerlione/leckerlione-regular-webfont.ttf') format('truetype'),
 		 url('../fonts/leckerlione/leckerlione-regular-webfont.svg#leckerli_oneregular') format('svg');
 }
+
+/*====================BODY====================*/
 
 body {
   background: #fff;
@@ -183,7 +187,7 @@ p {
   padding: 0;
 }
 
-<!--Specific to Single Items page-->
+/*=======================SINGLE ITEMS==============*/
 #body .item {
   margin: auto auto 0px;
   width: 450px;

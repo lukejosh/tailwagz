@@ -9,7 +9,8 @@
 		<script type="text/javascript" src="js/javascript.js"></script>		
 	</head>
 	<body>
-		<?php include 'components/header.inc'; ?>
+		<!-- Header-->
+		<?php include 'components/header.inc'; ?> 
 		<div id="body">
 			<div id="homepage">
 				<img src="images/homepage.jpg" alt="">
@@ -64,6 +65,7 @@
 					</li>
 				</ul>
 			</div>
+			<!-- Footer -->
 		<?php include 'components/footer.inc'; ?>
 	</body>
 </html>
