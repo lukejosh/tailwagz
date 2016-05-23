@@ -7,11 +7,15 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
 		<script type="text/javascript" src="js/javascript.js"></script>		
+		<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIr2_wRZyXYr8wsA3vdXk50J0OMti4oA&signed_in=false&callback=initMap">
+		</script>
 	</head>
 	<body>
 		<?php include 'components/header.inc'; ?>
-		<div id="body">
-			<h1><span>Results</span></h1>
+		<div id="body" onload="initMap()">
+			<p id="title">Results</p>
+			<div id="googleMap"></div>
 			<div class="results">
 				<table>
 					<tr>

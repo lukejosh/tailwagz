@@ -11,11 +11,12 @@
 	<body>
 		<?php include 'components/header.inc'; ?>
 		<div id="body">
-			<h1><span>log in</span></h1>
-			<form action="login.php">
-				<input type="email" name="email" id="email" placeholder="E-Mail Address" required>
-				<input type="password" name="password" id="password" placeholder="Password" required>
-				<input type="submit" class="submit_button" name="login" id="login" value="log in">
+			<p id="title">Log In</p>
+			<form action="login.php" method="post">
+				<input type="email" name="email" id="email" placeholder="E-Mail Address" required/>
+				<input type="text" name="username" id="username" placeholder="Username" required/>
+				<input type="password" name="password" id="password" placeholder="Password" required/>
+				<input type="submit" class="submit" name="login" id="login" value="Log In"/>
 			</form>
 		</div>
 		<?php include 'components/footer.inc'; ?>

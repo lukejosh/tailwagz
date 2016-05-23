@@ -14,58 +14,43 @@
 		<div id="body">
 			<div id="homepage">
 				<img src="images/homepage.jpg" alt="">
-				<div>
+				<div id="center-content">
 					<h2>TailWagz</h2>
 					<span>A central hub to search and review dog park facilities in and around Brisbane, Australia.</span>
-					<br>
 					<a href="search.php" class="more">search</a>
 					<a href="login.php" class="more">log in</a>
 					<a href="signup.php" class="more">sign up</a>
 				</div>
-			<br><h1><span>Popular Categories</span></h1>
-			</div id="categories">
-				<ul>
-					<li>
-						<a href="results.php">
-							<img src="images/dog-beach.jpg" alt="">
-							<span>Beach</span>
-						</a>
-					</li>
-					<li>
-						<a href="results.php">
-							<img src="images/dog-friendly.jpg" alt="">
-							<span>Friendly</span>
-						</a>
-					</li>
-					<li>
-						<a href="results.php">
-							<img src="images/dog-training.jpg" alt="">
-							<span>Training</span>
-						</a>
-					</li>
-				</ul>
-				<ul>
-					<li>
-						<a href="results.php">
-							<img src="images/dog-quiet.jpg" alt="">
-							<span>Quiet</span>
-						</a>
-					</li>
-					<li>
-						<a href="results.php">
-							<img src="images/dog-busy.jpg" alt="">
-							<span>Busy</span>
-						</a>
-					</li>
-					<li>
-						<a href="results.php">
-							<img src="images/dog-big.jpg" alt="">
-							<span>Big</span>
-						</a>
-					</li>
-				</ul>
 			</div>
-			<!-- Footer -->
+			<div id="categories">
+				<h1>Popular Categories</h1>
+				<a href="results.php">
+					<img src="images/dog-beach.jpg" alt="">
+					<p>Beach</p>
+				</a>
+				<a href="results.php">
+					<img src="images/dog-friendly.jpg" alt="">
+					<p>Friendly</p>
+				</a>
+				<a href="results.php">
+					<img src="images/dog-training.jpg" alt="">
+					<p>Training</p>
+				</a>
+				<a href="results.php">
+					<img src="images/dog-quiet.jpg" alt="">
+					<p>Quiet</p>
+				</a>
+				<a href="results.php">
+					<img src="images/dog-busy.jpg" alt="">
+					<p>Busy</p>
+				</a>
+				<a href="results.php">
+					<img src="images/dog-big.jpg" alt="">
+					<p>Big</p>
+				</a>
+				
+			</div>
+		<!-- Footer -->
 		<?php include 'components/footer.inc'; ?>
 	</body>
 </html>

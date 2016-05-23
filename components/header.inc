@@ -1,6 +1,6 @@
 <div id="header">
-		<a href="index.php" class="logo">
-			<img src="images/logo.png" alt="">
+		<a id="banner" href="index.php" class="logo">
+			<img src="images/logo.png" alt="TailWagz logo">
 		</a>
 		<ul id="navigation">
 			<li>
@@ -21,6 +21,5 @@
 			<li>
 				<a href="item.php">single item</a>
 			</li>
-			
 		</ul>
 	</div>

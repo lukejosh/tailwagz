@@ -69,7 +69,3 @@ function revert_other_searches(keepid){
         }
     }
 }
-
-function latlon(){
-    
-}

@@ -1,7 +1,8 @@
 /* Website Template by freewebsitetemplates.com */
-body {
+#body {
 	min-width: 0;
 }
+
 #header {
 	padding: 20px 0;
 	position: relative;
@@ -79,6 +80,7 @@ body {
 	top: 0;
 	width: 50px;
 }
+
 #body {
 	width: 100%;
 }
@@ -200,7 +202,7 @@ body {
 #body form {
 	width: 100%;
 }
-#body form input, #body form textarea {
+#body form input, #body form textarea, #body form #rbuttons {
 	margin: 0 0 20px;
 	padding: 10px;
 	width: 84%;
