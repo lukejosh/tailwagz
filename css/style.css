@@ -1,39 +1,72 @@
 /*======================HEADER=================*/
 #header {
 	font-family: "Arial Black", Gadget, sans-serif;
-	min-width: 900px;
+	min-width: 450px;
 	margin: 0 auto 0 auto;
 	padding: 25px 0 0 0;
 	text-align: center;
 }
-#header #banner {
+
+#header #authBanner{
+	font-family: "Arial", Gadget, sans-serif;
+	font-size: 18px;	
+	float: right;
+	margin: 5px auto 5px auto;
+}
+
+#header #authBanner > a {
+	min-height: 50px;
+	padding: 5px;
+	text-decoration: none;
+	color: #fff;
+	background: #540B2C;
+	border: 1px solid #540B2C;
+} 
+
+#header #authBanner > a:hover {
+  background: #fff;
+  color: #540B2C;
+}
+
+#authBanner > p {
+	margin: 0 5px 0 5px;
+	display: inline-block;
+	
+	color: #540B2C;
+	background: #fff;
+}
+
+#header #imageBanner {
   display: block;
   margin: 0 auto;
   width: 400px;
 }
 
-#header #banner img {
+#header #imageBanner img {
   width: 100%;
   height: auto;
 }
 
-#header #navigation {
-  min-width: 900px;
+#header #navigationBanner {
+  min-width: 940px;
   margin: 0 auto 0 auto;
   padding: 50px 0 0 0;
 }
-#header #navigation li {
+
+#header #navigationBanner li {
   display: inline-block;
   list-style: none;
   margin: 0 15px 0 15px;
 }
-#header #navigation li a {
+
+#header #navigationBanner li a {
   color: #540B2C;
   font-size: 18px;
   text-decoration: none;
   text-transform: uppercase;
 }
-#header #navigation li a:hover, #header #navigation li.selected a {
+
+#header #navigationBanner li a:hover, #header #navigationBanner li.selected a {
   color: #4DBD33;
 }
 
@@ -44,7 +77,7 @@
 	padding: 25px 0 25px 0;
 }
 #footer div {
-	min-width: 900px;
+	min-width: 450px;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -60,6 +93,7 @@
   float: right;
   margin: 0 20px 0 20px;
 }
+
 #footer div ul li {
   display: inline-block;
   list-style: none;
@@ -105,7 +139,7 @@
 #body {
 	font-family: "Arial Black", Gadget, sans-serif;
 	color: #540B2C;
-	min-width: 960px;
+	min-width: 450px;
 	text-align: center;
 	padding: 0px 0 25px 0;
 }
@@ -124,6 +158,15 @@
 	font-size: 18px;
 	width: 450px;
 	text-align: left;
+}
+
+#body .error {
+	color: #ff4500;
+	margin: 25px auto 25px auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	width: 450px;
+	text-align: centre;
 }
 
 #body .googleMap {
@@ -194,6 +237,7 @@
 #body #categories a {
 	display: inline-block;
 	width: 31%;
+	min-width: 300px;
 	color: #540B2C;
 	font-size: 20px;
 	font-weight: normal;
