@@ -49,48 +49,65 @@
 		header("Location: http://{$_SERVER['HTTP_HOST']}/cab230-assignment1/login.php");
 	}
 	
-		function display_month($month, $year) {
-			
-			$first_day_of_month = mktime(0, 0, 0, $month, 1, $year);
-			$first_day_of_week = date('w', $first_day_of_month);
-			$month_name = date('F', $first_day_of_month);
-			$days_in_month = date('t', $first_day_of_month);
-			
-			$current_year = gmDate("Y");
-			$current_month = gmDate("m");
-			$current_day = gmDate("d");
-			
-			echo "<h2>".$month_name." ".$year."</h2>";
-			echo "<table border='solid'><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
-			
-			if ($first_day_of_week > 0){
-				echo "<td colspan=\"$first_day_of_week\">&nbsp;</td>";
-			};
-			
-			for ($day_of_week = $first_day_of_week, $day_of_month=1;$day_of_month <= $days_in_month; $day_of_month++, $day_of_week++){
-				if ($day_of_week == 7) # if past end of week
-				{
-					echo '</tr>'; # end the row for the current week
-					$day_of_week = 0; # reset to the start of the week
-					echo '<tr>'; # create a row for the next week
-				}
-				if ($current_year == $year && $current_month == $month && $current_day == $day_of_month){
-					echo "<td><b>$day_of_month</b></td>";
-				}else{
-					echo "<td>$day_of_month</td>";
-				}
+	function display_month($month, $year) {
+		
+		$first_day_of_month = mktime(0, 0, 0, $month, 1, $year);
+		$first_day_of_week = date('w', $first_day_of_month);
+		$month_name = date('F', $first_day_of_month);
+		$days_in_month = date('t', $first_day_of_month);
+		
+		$current_year = gmDate("Y");
+		$current_month = gmDate("m");
+		$current_day = gmDate("d");
+		
+		echo "<h2>".$month_name." ".$year."</h2>";
+		echo "<table border='solid'><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>";
+		
+		if ($first_day_of_week > 0){
+			echo "<td colspan=\"$first_day_of_week\">&nbsp;</td>";
+		};
+		
+		for ($day_of_week = $first_day_of_week, $day_of_month=1;$day_of_month <= $days_in_month; $day_of_month++, $day_of_week++){
+			if ($day_of_week == 7) # if past end of week
+			{
+				echo '</tr>'; # end the row for the current week
+				$day_of_week = 0; # reset to the start of the week
+				echo '<tr>'; # create a row for the next week
 			}
-			
-			$last_day_of_month = mktime(0, 0, 0, $month, $days_in_month, $year);
-			$last_day_of_week = date('w', $last_day_of_month);
-			
-			
-			
-			if ($last_day_of_week < 6){
-				$num_empty_cols = 6 - $last_day_of_week;
-				echo "<td colspan=\"$num_empty_cols\">&nbsp;</td>";
-			};
-			echo "<tr></tr></table>";
+			if ($current_year == $year && $current_month == $month && $current_day == $day_of_month){
+				echo "<td><b>$day_of_month</b></td>";
+			}else{
+				echo "<td>$day_of_month</td>";
+			}
+		}
+		
+		$last_day_of_month = mktime(0, 0, 0, $month, $days_in_month, $year);
+		$last_day_of_week = date('w', $last_day_of_month);
+		
+		
+		
+		if ($last_day_of_week < 6){
+			$num_empty_cols = 6 - $last_day_of_week;
+			echo "<td colspan=\"$num_empty_cols\">&nbsp;</td>";
+		};
+		echo "<tr></tr></table>";
 
 		}
+
+	function query_park_column($field, $value){
+		$pdo = new PDO('mysql:host=127.0.0.1;dbname=n9155554', 'testing', 'password');
+		return $pdo -> query("SELECT * FROM parks WHERE $field = '$value';");
+	}
+
+	function get_all_suburbs(){
+		$pdo = new PDO('mysql:host=127.0.0.1;dbname=n9155554', 'testing', 'password');
+		$result = $pdo -> query("SELECT DISTINCT suburb from parks");
+		$suburbs = array_fill(1, $result->rowCount() - 1, 1);
+		foreach($result as $key => $row){
+			$suburbs[$key] = $row['suburb'];
+		}
+		sort($suburbs);
+
+		return $suburbs;
+	}
 ?>

@@ -27,7 +27,30 @@
 					  <th>Tags</th>
 					  <th>Rating</th>
 					</tr>
-					<tr >
+
+					<?php
+					include 'php/functions.php';
+					foreach($_GET as $key => $value){
+						if ($value != ""){
+							break;
+						}
+					}
+
+					$results = query_park_column($key, $value);
+
+					foreach($results as $park){
+						echo "<tr>";
+							echo "<td><a href=\"item.php?id=".$park['parkid']."\">".$park['name']."<a></td>";
+							echo "<td><a href=\"item.php?id=".$park['parkid']."\">".$park['suburb'].", ".$park['street']."<a></td>";
+							echo "<td><a href=\"item.php?id=".$park['parkid']."\">".$park['category']."<a></td>";
+							echo "<td><a href=\"item.php?id=".$park['parkid']."\">".$park['rating']."<a></td>";
+						echo "</tr>";
+
+					}
+
+					?>
+
+<!-- 					<tr >
 						  <td><a href="item.php">7TH BRIGADE PARK<a></td>
 						  <td><a href="item.php">HAMILTON RD,CHERMSIDE<a></td>
 						  <td><a href="item.php">Busy, Friendly<a></td>
@@ -44,7 +67,7 @@
 						  <td><a href="item.php">HEDLEY AVE,NUNDAH<a></td>
 						  <td><a href="item.php">Big, Training<a></td>
 						  <td><a href="item.php">5<a></td>
-					</tr>
+					</tr> -->
 				</table>
 			</div>
 		</div>
