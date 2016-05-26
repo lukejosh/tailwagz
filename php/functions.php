@@ -95,12 +95,12 @@
 		}
 
 	function query_park_column($field, $value){
-		$pdo = new PDO('mysql:host=127.0.0.1;dbname=n9155554', 'testing', 'password');
+		$pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=n9155554', 'admin', 'masterpassword');
 		return $pdo -> query("SELECT * FROM parks WHERE $field = '$value';");
 	}
 
 	function get_all_suburbs(){
-		$pdo = new PDO('mysql:host=127.0.0.1;dbname=n9155554', 'testing', 'password');
+		$pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=n9155554', 'admin', 'masterpassword');
 		$result = $pdo -> query("SELECT DISTINCT suburb from parks");
 		$suburbs = array_fill(1, $result->rowCount() - 1, 1);
 		foreach($result as $key => $row){
