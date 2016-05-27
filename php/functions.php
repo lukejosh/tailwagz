@@ -111,6 +111,12 @@
 		return $suburbs;
 	}
 
+	function get_parks_near_user($user_lat, $user_long, $distance){
+		$pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=n9155554', 'admin', 'masterpassword');
+		$result = $pdo -> query("SELECT * from parks WHERE haversine(latitude, longitude, ".$user_lat.", ".$user_long.") < ".$distance);
+		return $result;
+	}
+
 	function get_park_by_id($pid){
 		$pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=n9155554', 'admin', 'masterpassword');
 		$result = $pdo -> query("SELECT * from parks WHERE parkid = ".$pid);

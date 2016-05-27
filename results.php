@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html>
 	<?php
 			session_start();	
@@ -9,9 +9,9 @@
 		<title>Dog Park Reviews</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
-		<script type="text/javascript" src="js/javascript.js"></script>		
-		<script async defer
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIr2_wRZyXYr8wsA3vdXk50J0OMti4oA&signed_in=false&callback=initMap">
+		<script type="text/javascript" src="js/javascript.js"></script>	
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIr2_wRZyXYr8wsA3vdXk50J0OMti4oA&signed_in=false">
 		</script>
 	</head>
 	<body>
@@ -30,13 +30,18 @@
 
 					<?php
 					include 'php/functions.php';
+
 					foreach($_GET as $key => $value){
 						if ($value != ""){
 							break;
 						}
 					}
-
-					$results = query_park_column($key, $value);
+					if ($key == 'lat' or $key == 'lon'){
+						$results = get_parks_near_user($_GET['lat'], $_GET['lon'], 10);
+					}
+					else{
+						$results = query_park_column($key, $value);
+					}
 
 					foreach($results as $park){
 						echo "<tr>";
@@ -49,26 +54,18 @@
 					}
 
 					?>
-
-<!-- 					<tr >
-						  <td><a href="item.php">7TH BRIGADE PARK<a></td>
-						  <td><a href="item.php">HAMILTON RD,CHERMSIDE<a></td>
-						  <td><a href="item.php">Busy, Friendly<a></td>
-						  <td><a href="item.php">8<a></td>
-					</tr>
-					<tr >
-						  <td><a href="item.php">ABBEVILLE STREET PARK<a></td>
-						  <td><a href="item.php">ABBEVILLE ST,UPR MT GRAVATT<a></td>
-						  <td><a href="item.php">Quiet<a></td>
-						  <td><a href="item.php">2<a></td>
-					</tr>
-					<tr >
-						  <td><a href="item.php">ALBERT BISHOP PARK<a></td>
-						  <td><a href="item.php">HEDLEY AVE,NUNDAH<a></td>
-						  <td><a href="item.php">Big, Training<a></td>
-						  <td><a href="item.php">5<a></td>
-					</tr> -->
 				</table>
+			<div>
+				<div class="googleMap" id="googleMap"></div>
+				<script>
+					<?php
+						echo "initMap(".$_GET['lat'].", ".$_GET['lon'].", \"Your Location\");";
+						// foreach($results as $park){
+						// 	echo "addMarker($park['latitude'], $park['longitude'], $park['parkname']);";
+						// }
+					?>
+				</script>
+			</div>
 			</div>
 		</div>
 		<?php include 'components/footer.inc'; ?>

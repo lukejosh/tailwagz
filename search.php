@@ -17,9 +17,9 @@
 		<?php include 'components/header.inc'; ?>
 		<div id="body">
 			<p id="title">Search</p>
-			
+			<button class="submit" id="location" onclick="user_location_link()"><p>Search By Location</p></button>
 			<form action="results.php">
-				<a href="search.php" class="submit" id="location"><p>Search By Location</p></a>
+				
 				<p>or select one of the following</p>
 				<select name="suburb" id="suburb" onchange="revert_other_searches('suburb')">
 					<option>Select a suburb</option>

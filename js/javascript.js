@@ -31,12 +31,13 @@ function validate_password() {
 
 function initMap(lati, longi, parkname) {
 	var myLatLng = {lat: parseFloat(lati), lng: parseFloat(longi)};
-    alert(parkname);
-	var map = new google.maps.Map(document.getElementById('googleMap'), {
+	window.map = new google.maps.Map(document.getElementById('googleMap'), {
 	  zoom: 15,
 	  center: myLatLng,
 	  mapTypeId: google.maps.MapTypeId.HYBRID
 	});
+
+    console.log(window.map);
 	
 	var contentString = parkname;
 	
@@ -54,6 +55,16 @@ function initMap(lati, longi, parkname) {
 	});
 }
 
+function addMarker(lat, lon, parkname){
+    var latLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
+    var marker = new google.maps.Marker({
+        position: latLng,
+        title: parkname
+    });
+
+    marker.setMap(window.map);
+}
+
 function revert_other_searches(keepid){
     var elements = document.forms[0].elements;
 
@@ -68,4 +79,12 @@ function revert_other_searches(keepid){
             }
         }
     }
+}
+
+function location_callback(loc) {
+    window.location.href = "results.php?lat=".concat(loc.coords.latitude, "&lon=", loc.coords.longitude);
+}
+
+function user_location_link(){
+    navigator.geolocation.getCurrentPosition(location_callback);
 }
