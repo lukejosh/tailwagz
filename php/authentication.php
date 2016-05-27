@@ -1,6 +1,6 @@
 <?php
 	function get_sql_connector(){
-		$pdo = new PDO('mysql:host=localhost;dbname=authentication', 'root', ''); 
+		$pdo = new PDO('mysql:host=localhost;dbname=tailwagz', 'root', ''); 
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 		return $pdo;
 	}
@@ -13,12 +13,15 @@
 	
 	function perform_sql_query($pdo, $query, $parameters){
 		try {			 
-			$result = $pdo->prepare($query);			
-			while($value = current($parameters)){
-				$result->bindValue(key($parameters), $value);
-				next($parameters);
-			}			
-			$result->execute();			
+			$result = $pdo->prepare($query);
+					
+			if(!is_null($parameters)){
+				while($value = current($parameters)){
+					$result->bindValue(':'.key($parameters), $value);
+					next($parameters);
+				}
+			}						
+			$result->execute();
 			return $result;
 		} catch (PDOException $e) {
 			$_SESSION['errorMessage'] = json_encode($parameters)."".$e->getMessage();
@@ -31,9 +34,9 @@
 		$pdo = get_sql_connector();
 		$query = ''.
 			'SELECT * '.
-			'FROM admins '.
+			'FROM users '.
 			'WHERE username = :username'; 
-		$parameters[':username'] = $data['email'];
+		$parameters['username'] = htmlspecialchars($data['username'], ENT_QUOTES, 'UTF-8');
 		$result = perform_sql_query($pdo, $query, $parameters);
 								
 		if ($result->rowCount() > 0){			
@@ -43,17 +46,23 @@
 		}
 
 		$query = ''.
-			'INSERT INTO admins (username, salt, password) '.
-			'VALUES(:username, salt,'.
-			'SHA2(CONCAT(:password, salt), 0))';	
-		$parameters[':password'] = $data['password'];
+			'INSERT INTO users (username, password, salt, firstName, lastName, email, dob, mobile, sex) '.
+			'VALUES(:username, SHA2(CONCAT(:password, salt), 0), salt, :firstName, :lastName, :email, DATE(:dob), :mobile, :sex)';	
+		$parameters['password'] = htmlspecialchars($data['password'], ENT_QUOTES, 'UTF-8');
+		$parameters['firstName'] = htmlspecialchars($data['firstname'], ENT_QUOTES, 'UTF-8');
+		$parameters['lastName'] = htmlspecialchars($data['lastname'], ENT_QUOTES, 'UTF-8');
+		$parameters['email'] = htmlspecialchars($data['email'], ENT_QUOTES, 'UTF-8');
+		$parameters['dob'] = htmlspecialchars($data['dob'], ENT_QUOTES, 'UTF-8');
+		$parameters['mobile'] = htmlspecialchars($data['mobile'], ENT_QUOTES, 'UTF-8');
+		$parameters['sex'] = htmlspecialchars($data['sex'], ENT_QUOTES, 'UTF-8');
+		
 		$result = perform_sql_query($pdo, $query, $parameters);
 								
 		if ($result->rowCount() > 0){			
 			session_start(); 
 			session_id();
 			$_SESSION['isLoggedOn'] = true;
-			$_SESSION['username'] = $data['email'];
+			$_SESSION['username'] = $data['username'];
 			header("Location: http://{$_SERVER['HTTP_HOST']}/cab230-assignment1/index.php");
 			exit();
 		}		
@@ -63,12 +72,12 @@
 		$pdo = get_sql_connector();
 		$query = ''.
 				'SELECT * '.
-				'FROM admins '.
+				'FROM users'.
 				'WHERE username = :username and '.
 				'password = SHA2(CONCAT(:password, salt), 0)'; 
 
-		$parameters[':username'] = $data['email'];
-		$parameters[':password'] = $data['password'];
+		$parameters['username'] = $data['username'];
+		$parameters['password'] = $data['password'];
 		$result = perform_sql_query($pdo, $query, $parameters);
 									
 		if ($result->rowCount() > 0){ 

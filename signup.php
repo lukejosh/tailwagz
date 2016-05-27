@@ -26,18 +26,18 @@
 			<form id="signup" action="signup.php" method="post" >
 				<input type="text" name="username" id="username" placeholder="Username" required/>
 				<input type="text" name="firstname" id="firstname" placeholder="First Name" required/>
-				<input type="text" name="surname" id="surname" placeholder="Last Name" required/>
+				<input type="text" name="lastname" id="lastname" placeholder="Last Name" required/>
 				<input type="email" name="email" id="email" placeholder="E-Mail Address" required/>
-				<input type="number" name="phone" id="phone" placeholder="Phone number" required/>
+				<input type="number" name="mobile" id="mobile" placeholder="Phone number" required/>
 				<input type="password" name="password" id="password" placeholder="Password" required/>
 				<input type="password" name="confpassword" id="confpassword" placeholder="Confirm Password" onchange="validate_password();" required/>
-				<!--<input type="date" class="date" placeholder="02/02/1996" required/>
+				<input type="date" class="date" name="dob" id="dob" placeholder="02/02/1996" required/>
 				<div id="rbuttons">
-					<input type="radio" name="gender" value="male"/>
+					<input type="radio" name="sex" value="male"/>
 					<label >Male</label>
-					<input type="radio" name="gender" value="female"/>
+					<input type="radio" name="sex" value="female"/>
 					<label >Female</label>
-				</div>-->
+				</div>
 				<input type="submit" class="submit" name="signup" id="signup" value="Sign Up"/>
 			</form>
 		</div>

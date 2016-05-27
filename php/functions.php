@@ -7,30 +7,53 @@
 			$_SESSION['errorMessage'] = null;					
 		}
 	}
-	 
-	 function add_suburb_options(){
+		 
+	function add_suburb_options(){
 		$pdo = get_sql_connector_aws();
 		$query = 'SELECT DISTINCT suburb FROM parks ORDER BY suburb ASC';
 		$parameters = null;
 		$result = perform_sql_query($pdo, $query, $parameters);
-	
+
 		if ($result->rowCount() < 1 || is_null($result)){
 				exit();
 		}
-		
+
 		foreach($result as $key => $row){
 			echo "<option value=\"".$row['suburb']."\">".$row['suburb']."</option>";
 		}
+	}
+	 
+	 function get_all_parks(){
+		$pdo = get_sql_connector_aws();
+		$query = 'SELECT * FROM parks';
+		return perform_sql_query($pdo, $query, null);
 	 }
 	 
-	 function perform_search(){
-		 foreach($_GET as $key => $value){
-				if ($value != ""){
-					break;
-				}
+	 function get_park_by_id($id){
+		$pdo = get_sql_connector_aws();
+		$query = "SELECT * from parks WHERE parkid = ".$id;
+		//$result = perform_sql_query($pdo, $query, null)->fetch();
+		$result = perform_sql_query($pdo, $query, null);
+		return $result;
+	}
+	 
+	 function get_search_results(){
+		$pdo = get_sql_connector_aws();
+		
+		if(is_null($_GET)){
+			return get_all_parks();
+		}
+		
+		while($value = current($_GET)){
+			if ($value != ""){		
+				$field = key($_GET);
+				$query = "SELECT * FROM parks WHERE $field = '$value'";
+				return perform_sql_query($pdo, $query, null);
 			}
-
-		return query_park_column($key, $value);
+			next($_GET);
+		}		
+		
+		return get_all_parks();	// 	Caters for if all form parameter are emppty
 	 }
 	 
 	 function display_results_rows($search_data){
@@ -44,8 +67,32 @@
 		}
 	 }
 	 
-		
-	
+	 function display_park_info($search_data){
+			$park = $search_data[0];
+	 
+			echo "<p><b>Dog Park Name:</b> ".$park['name']."<br>";
+			echo "<b>Street:</b> ".$park['street']."<br>";
+			echo "<b>Suburb:</b> ".$park['suburb']."<br>";
+			echo "<b>Tags:</b> ".$park['category']."<br>";
+			echo "<b>Rating:</b>".$park['rating']."</p>";
+			echo "<script> var lat = ".$park['latitude'].";";
+			echo "var long = ".$park['longitude'].";";
+			echo "var name = \"".$park['name']."\";</script>";
+	 }
+	 
+	 function display_map($search_data){
+		 echo '<div class="googleMap" id="googleMap"></div>';	 
+		 echo '<script>initMap();</script>';
+		 
+		 foreach($search_data as $park){	 	 
+			echo '<script>addMarkerToMap('.$park['latitude'].','.$park['longitude'].
+				',"'.$park['name'].'","item.php?id='.$park['parkid'].
+				'","'.$park['rating'].'","'.$park['suburb'].
+				'","'.$park['street'].'");</script>';
+		 }
+		 
+	 }
+	 
 	function display_month($month, $year) {
 		
 		$first_day_of_month = mktime(0, 0, 0, $month, 1, $year);
@@ -89,29 +136,6 @@
 		};
 		echo "<tr></tr></table>";
 
-		}
+		}	
 
-	function query_park_column($field, $value){
-		$pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=n9155554', 'admin', 'masterpassword');
-		return $pdo -> query("SELECT * FROM parks WHERE $field = '$value';");
-	}
-
-	function get_all_suburbs(){
-		$pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=n9155554', 'admin', 'masterpassword');
-		$result = $pdo -> query("SELECT DISTINCT suburb from parks");
-		$suburbs = array_fill(1, $result->rowCount() - 1, 1);
-		foreach($result as $key => $row){
-			$suburbs[$key] = $row['suburb'];
-		}
-		sort($suburbs);
-
-		return $suburbs;
-	}
-
-	function get_park_by_id($pid){
-		$pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=n9155554', 'admin', 'masterpassword');
-		$result = $pdo -> query("SELECT * from parks WHERE parkid = ".$pid);
-
-		return $result->fetchAll();
-	}
 ?>

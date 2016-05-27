@@ -1,0 +1,24 @@
+CREATE SCHEMA Tailwagz;
+
+CREATE TABLE Tailwagz.Users(
+	id integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	username varchar(64) NOT NULL UNIQUE,
+	password varchar(64) NOT NULL,
+    salt varchar(64) NOT NULL,
+    firstName varchar(64),
+    lastName varchar(64),
+    email varchar(64),   
+    dob DATE ,
+	mobile integer,
+	sex varchar(64)
+);
+
+CREATE TABLE Tailwagz.Reviews(
+	id integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	parkID integer NOT NULL,
+    username integer NOT NULL,
+    message varchar(255) NOT NULL,
+	rating integer NOT NULL,
+	tag varchar(64),
+	FOREIGN KEY (username) REFERENCES Users(username)
+);

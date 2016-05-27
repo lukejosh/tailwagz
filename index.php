@@ -16,6 +16,7 @@
 	<body>
 		<!-- Header-->
 		<?php include 'components/header.inc'; ?> 
+		<?php display_error_message();?>
 		<div id="body">
 			<div id="homepage">
 				<img src="images/homepage.jpg" alt="">

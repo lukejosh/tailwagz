@@ -28,15 +28,13 @@ function validate_password() {
     }
 }
 
-function initMap(lati, longi, parkname) {
-	var myLatLng = {lat: parseFloat(lati), lng: parseFloat(longi)};
-	var map = new google.maps.Map(document.getElementById('googleMap'), {
-	  zoom: 15,
-	  center: myLatLng,
-	  mapTypeId: google.maps.MapTypeId.HYBRID
-	});
+function addMarkerToMap(latitude,longitude,labelString,url,rating,suburb,street){
+	var myLatLng = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
 	
-	var contentString = parkname;
+	var contentString = "<h3><a href='"+url+"'>"+labelString+"</a></h3>"+
+						"<b>Suburb: </>"+suburb+"<br/>"+
+						"<b>Street: </>"+street+"<br/>"+
+						"<b>Rating: </>"+rating+"<br/>";
 	
 	var infowindow = new google.maps.InfoWindow({
 		content: contentString
@@ -45,11 +43,29 @@ function initMap(lati, longi, parkname) {
 	var marker = new google.maps.Marker({
 		position: myLatLng,
 		map: map,
-		title: parkname
+		title: contentString,
+		url: url
 	});
+	
 	marker.addListener('click', function() {
 		infowindow.open(map, marker);
 	});
+	
+	loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+	bounds.extend(loc);
+	
+	map.serZoom(19);
+	map.panToBounds(bounds);
+}
+
+function initMap() {
+	var myLatLng = {lat: -27.467401, lng: 153.025101};
+	map = new google.maps.Map(document.getElementById('googleMap'), {
+	  zoom: 10,
+	  center: myLatLng,
+	  mapTypeId: google.maps.MapTypeId.HYBRID
+	});
+	bounds = new google.maps.LatLngBounds();
 }
 
 function revert_other_searches(keepid){

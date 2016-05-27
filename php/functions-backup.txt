@@ -242,3 +242,12 @@
 		}*/
 	 }
 ?>
+
+while($value = current($_GET)){
+			if ($value != ""){		
+				$field = key($_GET);
+				$query = "SELECT * FROM parks WHERE $field = $value";
+				return perform_sql_query($pdo, $query, null);
+			}
+			next($_GET);
+		}

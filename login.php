@@ -24,7 +24,8 @@
 			<p id="title">Log In</p>
 			<?php display_error_message();?>
 			<form id="login" action="login.php" method="post" >
-				<input type="email" name="email" id="email" placeholder="E-Mail Address" required/>
+				<input type="text" name="username" id="username" placeholder="Username" required/>
+				<!--<input type="email" name="email" id="email" placeholder="E-Mail Address" required/>-->
 				<input type="password" name="password" id="password" placeholder="Password" required/>
 				<input type="submit" class="submit" name="login" id="login" value="Log In"/>
 			</form>

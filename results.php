@@ -5,7 +5,7 @@
 		include "php/functions.php";
 		session_start();
 
-		$results_data = perform_search();
+		$results_data = get_search_results()->fetchAll();
 	?>
 	<head>
 		<meta charset="UTF-8">
@@ -13,16 +13,18 @@
 		<title>Dog Park Reviews</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
-		<script type="text/javascript" src="js/javascript.js"></script>		
-		<script async defer
-			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIr2_wRZyXYr8wsA3vdXk50J0OMti4oA&signed_in=false&callback=initMap">
-		</script>
+		<script type="text/javascript" src="js/javascript.js"> 
+			var map;
+			var bounds;
+		</script>	
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOIr2_wRZyXYr8wsA3vdXk50J0OMti4oA&signed_in=false"></script>	
 	</head>
 	<body>
 		<?php include 'components/header.inc'; ?>
-		<div id="body" onload="initMap()">
+		<div id="body">
 			<p id="title">Results</p>
-			<div class="googleMap"></div>
+			<?php display_error_message();?>
+			<?php display_map($results_data);?>
 			<table id="results">
 				<tr>
 				  <th>Name</th>
