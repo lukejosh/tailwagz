@@ -31,7 +31,6 @@ function validate_password() {
 
 function initMap(lati, longi, parkname) {
 	var myLatLng = {lat: parseFloat(lati), lng: parseFloat(longi)};
-    alert(parkname);
 	var map = new google.maps.Map(document.getElementById('googleMap'), {
 	  zoom: 15,
 	  center: myLatLng,
