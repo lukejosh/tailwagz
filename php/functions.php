@@ -107,4 +107,11 @@
 
 		return $suburbs;
 	}
+
+	function get_park_by_id($pid){
+		$pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=n9155554', 'admin', 'masterpassword');
+		$result = $pdo -> query("SELECT * from parks WHERE parkid = ".$pid);
+
+		return $result->fetchAll();
+	}
 ?>
