@@ -3,9 +3,7 @@
 	<?php 
 		include "php/authentication.php";
 		include "php/functions.php";
-		session_start();
-		
-		logout();	
+		session_start();			
 	?>
 	<head>
 		<meta charset="UTF-8">
@@ -19,8 +17,8 @@
 	<body>
 		<?php include 'components/header.inc';?>
 		<div id="body">
-			<p id="title">Log Out</p>
-			<p class="error">Successfully Logged Out</p>
+			<p id="title">Error</p>
+			<?php display_error_message();?>
 		</div>
 		<?php include 'components/footer.inc'; ?>
 	</body>

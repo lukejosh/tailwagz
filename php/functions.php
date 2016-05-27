@@ -1,53 +1,50 @@
 <?php
-	function logout(){
-		session_id();		
-		// Unset all of the session variables.
-		$_SESSION = array();
-
-		// If it's desired to kill the session, also delete the session cookie.
-		// Note: This will destroy the session, and not just the session data!
-		if (ini_get("session.use_cookies")) {
-			$params = session_get_cookie_params();
-			setcookie(session_name(), '', time() - 42000,
-				$params["path"], $params["domain"],
-				$params["secure"], $params["httponly"]
-			);
+	function display_error_message(){
+		if (isset($_SESSION['errorMessage'])){
+			echo "<p class='error'>";
+			echo $_SESSION['errorMessage'];
+			echo "</p>";
+			$_SESSION['errorMessage'] = null;					
 		}
-		// Finally, destroy the session.
-		session_destroy();		
 	}
-
-	function login($username, $password){	
-		$pdo = new PDO('mysql:host=localhost;dbname=authentication', 'root', ''); 
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-		
-		try { 			
-			$result = $pdo->prepare('SELECT * '.
-									'FROM admins '.
-									'WHERE username = :username and '.
-									'password = SHA2(CONCAT(:password, salt), 0)'); 
-			$result->bindValue(":username", $username);
-			$result->bindValue(":password", $password);
-			$result->execute();
-									
-			if ($result->rowCount() > 0){ 
-				session_start(); 
-				session_id();
-				$_SESSION['isLoggedOn'] = true;
-				$_SESSION['username'] = $username;
-				
-				header("Location: http://{$_SERVER['HTTP_HOST']}/cab230-assignment1/index.php?sessionId=");
+	 
+	 function add_suburb_options(){
+		$pdo = get_sql_connector_aws();
+		$query = 'SELECT DISTINCT suburb FROM parks ORDER BY suburb ASC';
+		$parameters = null;
+		$result = perform_sql_query($pdo, $query, $parameters);
+	
+		if ($result->rowCount() < 1 || is_null($result)){
 				exit();
-			} else {			
-				$_SESSION['errorMessage'] = 'Failed to log on. Please check your email and password';			
-			}
-		} catch (PDOException $e) { 
-			echo $e->getMessage(); 
-			$_SESSION['errorMessage'] = 'Something went wrong';
 		}
 		
-		header("Location: http://{$_SERVER['HTTP_HOST']}/cab230-assignment1/login.php");
-	}
+		foreach($result as $key => $row){
+			echo "<option value=\"".$row['suburb']."\">".$row['suburb']."</option>";
+		}
+	 }
+	 
+	 function perform_search(){
+		 foreach($_GET as $key => $value){
+				if ($value != ""){
+					break;
+				}
+			}
+
+		return query_park_column($key, $value);
+	 }
+	 
+	 function display_results_rows($search_data){
+		foreach($search_data as $park){
+			echo "<tr id=\"row\">";
+				echo "<td><a href=\"item.php?id=".$park['parkid']."\">".$park['name']."<a></td>";
+				echo "<td><a href=\"item.php?id=".$park['parkid']."\">".$park['suburb'].", ".$park['street']."<a></td>";
+				echo "<td><a href=\"item.php?id=".$park['parkid']."\">".$park['category']."<a></td>";
+				echo "<td><a href=\"item.php?id=".$park['parkid']."\">".$park['rating']."<a></td>";
+			echo "</tr>";
+		}
+	 }
+	 
+		
 	
 	function display_month($month, $year) {
 		

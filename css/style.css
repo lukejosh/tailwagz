@@ -324,31 +324,42 @@
 /* Still need to review styles from this point onwards */
 
 #body .results {
-  margin-top: 30px;
-  width: 550px;
+	
 }
 
-#body .results table {
+#body #results {
   border-collapse: collapse;
-}
-
-#body .results table, th, td {
-  margin: auto auto 0px;
+  text-align: center;
+  max-width: 900px;
+  margin: 5px auto 5px auto;
   border: 1px solid #540B2C;
 }
 
-#body .results table tr td {
-  padding: 10px 1px;
-  color: #540B2C;
-  font-family: "Arial Black", Gadget, sans-serif;
+#body #results th,tr, td {
+  border: 1px solid #540B2C;
 }
 
-#body .results table tr td a {
+#body #results tr td{
+	margin: 10px;
+	padding: 10px;
+	color: #540B2C;
+}
+
+#body #results .row {
+	font-style: none;
+}
+
+#body #results .row:hover{
+	font-style: italic;
+}
+
+#body #results tr td a {
   color: #540B2C;
   text-decoration: none;
+  
 }
 
-#body .results table tr th {
+#body #results tr th {
   padding: 10px 5px;
   color: #fff;
   background: #540B2C;

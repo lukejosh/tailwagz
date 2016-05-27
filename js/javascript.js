@@ -20,9 +20,8 @@ function validate_password() {
     if (password.value != confPass.value) {
         confPass.setCustomValidity("Passwords Don't Match");
     }
-
     else if (password.value.match(/\d+/g) == null) {
-        confPass.setCustomValidity("Passwords must contain a digit")
+        //confPass.setCustomValidity("Passwords must contain a digit")
     }
     else {
         confPass.setCustomValidity('')

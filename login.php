@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		include "php/login.inc";
+		include "php/authentication.php";
+		include "php/functions.php";
+		session_start();
+		
 		if (isset($_POST['login'])) {
-			login($_POST['email'], $_POST['password']);
+			login($_POST);
 			// If login fails we need to add logic to refill forms
 		} 
 	?>
@@ -19,13 +22,7 @@
 		<?php include 'components/header.inc'; ?>
 		<div id="body">
 			<p id="title">Log In</p>
-			<?php
-				if (isset($_SESSION['errorMessage'])){
-					echo "<p class='error'>";
-					echo $_SESSION['errorMessage'];
-					echo "</p>";	
-				}
-			?>
+			<?php display_error_message();?>
 			<form id="login" action="login.php" method="post" >
 				<input type="email" name="email" id="email" placeholder="E-Mail Address" required/>
 				<input type="password" name="password" id="password" placeholder="Password" required/>

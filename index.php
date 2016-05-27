@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<?php
-			session_start();	
+		include "php/authentication.php";
+		include "php/functions.php";
+		session_start();			
 	?>
 	<head>
 		<meta charset="UTF-8">
@@ -21,8 +23,13 @@
 					<h2>TailWagz</h2>
 					<span>A central hub to search and review dog park facilities in and around Brisbane, Australia.</span>
 					<a href="search.php" class="more">search</a>
-					<a href="login.php" class="more">log in</a>
-					<a href="signup.php" class="more">sign up</a>
+					<?php
+					if (!isset($_SESSION['isLoggedOn']))
+					{
+						?>
+						<a href="login.php" class="more">log in</a>
+						<a href="signup.php" class="more">sign up</a><?php	
+					}?>
 				</div>
 			</div>
 			<div id="categories">

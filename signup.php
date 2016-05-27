@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<?php
-			session_start();	
+		include "php/authentication.php";
+		include "php/functions.php";
+		session_start();	
+		
+		if (isset($_POST['signup'])) {
+			signup($_POST);
+			// If login fails we need to add logic to refill forms
+		} 
 	?>
 	<head>
 		<meta charset="UTF-8">
@@ -15,7 +22,8 @@
 		<?php include 'components/header.inc'; ?>
 		<div id="body">
 			<p id="title">Sign Up</p>
-			<form action="signup.php">
+			<?php display_error_message();?>
+			<form id="signup" action="signup.php" method="post" >
 				<input type="text" name="username" id="username" placeholder="Username" required/>
 				<input type="text" name="firstname" id="firstname" placeholder="First Name" required/>
 				<input type="text" name="surname" id="surname" placeholder="Last Name" required/>

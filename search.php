@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<?php
-			session_start();	
+		include "php/authentication.php";
+		include "php/functions.php";
+		session_start();	
 	?>
 	<head>
 		<meta charset="UTF-8">
@@ -17,20 +19,13 @@
 		<?php include 'components/header.inc'; ?>
 		<div id="body">
 			<p id="title">Search</p>
-			
+			<?php display_error_message();?>
 			<form action="results.php">
 				<a href="search.php" class="submit" id="location"><p>Search By Location</p></a>
 				<p>or select one of the following</p>
 				<select name="suburb" id="suburb" onchange="revert_other_searches('suburb')">
 					<option>Select a suburb</option>
-
-					<?php
-						include "php/functions.php";
-						$subs = get_all_suburbs();
-						foreach ($subs as $row){
-							echo "<option value=\"".$row."\">".$row."</option>";
-						}
-					?>
+					<?php add_suburb_options();?>
 				</select>
 				<select name="rating" id="rating" onchange="revert_other_searches('rating')">
 					<option value="">Select a minimum rating</option>
