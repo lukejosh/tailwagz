@@ -29,16 +29,16 @@ function validate_password() {
     }
 }
 
-function initMap() {
-	var myLatLng = {lat: -27.38123113, lng: 153.0436597};
-
+function initMap(lati, longi, parkname) {
+	var myLatLng = {lat: parseFloat(lati), lng: parseFloat(longi)};
+    alert(parkname);
 	var map = new google.maps.Map(document.getElementById('googleMap'), {
 	  zoom: 15,
 	  center: myLatLng,
 	  mapTypeId: google.maps.MapTypeId.HYBRID
 	});
 	
-	var contentString = "7th Brigade Park";
+	var contentString = parkname;
 	
 	var infowindow = new google.maps.InfoWindow({
 		content: contentString
@@ -47,7 +47,7 @@ function initMap() {
 	var marker = new google.maps.Marker({
 		position: myLatLng,
 		map: map,
-		title: '7TH BRIGADE PARK'
+		title: parkname
 	});
 	marker.addListener('click', function() {
 		infowindow.open(map, marker);
