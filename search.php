@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		include "php/authentication.php";
-		include "php/functions.php";
+		include "php/common.inc";
+		include "php/search.inc";
 		session_start();	
 	?>
 	<head>
@@ -24,7 +24,7 @@
 				<a href="search.php" class="submit" id="location"><p>Search By Location</p></a>
 				<p>or select one of the following</p>
 				<select name="suburb" id="suburb" onchange="revert_other_searches('suburb')">
-					<option>Select a suburb</option>
+					<option value="">Select a suburb</option>
 					<?php add_suburb_options();?>
 				</select>
 				<select name="rating" id="rating" onchange="revert_other_searches('rating')">

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<?php 
-		include "php/authentication.php";
-		include "php/functions.php";
+		include "php/common.inc";
 		session_start();			
 	?>
 	<head>

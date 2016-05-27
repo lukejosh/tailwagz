@@ -54,7 +54,7 @@ function addMarkerToMap(latitude,longitude,labelString,url,rating,suburb,street)
 	loc = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
 	bounds.extend(loc);
 	
-	map.serZoom(19);
+	map.fitBounds(bounds);
 	map.panToBounds(bounds);
 }
 

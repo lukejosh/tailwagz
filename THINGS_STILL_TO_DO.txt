@@ -1,0 +1,18 @@
+Things to do still:
+
+- Add functionality for searching by location
+- Add functionality for searching by min rating, category and keywords
+- Add search links to the category hrefs on homepage
+- Fix css for drop down boxes, calender and radio buttons
+- Add categories to results and parks pages
+- Add date/timestamp to reviews
+- Add meta-data and microdata
+- Server side input validation
+- Do most of Section 4.6 (Programming Principles) in the brief
+- Do most of Section 4.7 (Report) in the brief
+- Validate all code, CSS and HTML
+
+
+Things marked as done:
+
+

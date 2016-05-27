@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		include "php/authentication.php";
-		include "php/functions.php";
+		include "php/common.inc";
+		include "php/results.inc";
 		session_start();
 
 		$results_data = get_search_results()->fetchAll();
@@ -33,25 +33,6 @@
 				  <th>Rating</th>
 				</tr>
 				<?php display_results_rows($results_data)?>
-
-<!-- 					<tr >
-					  <td><a href="item.php">7TH BRIGADE PARK<a></td>
-					  <td><a href="item.php">HAMILTON RD,CHERMSIDE<a></td>
-					  <td><a href="item.php">Busy, Friendly<a></td>
-					  <td><a href="item.php">8<a></td>
-				</tr>
-				<tr >
-					  <td><a href="item.php">ABBEVILLE STREET PARK<a></td>
-					  <td><a href="item.php">ABBEVILLE ST,UPR MT GRAVATT<a></td>
-					  <td><a href="item.php">Quiet<a></td>
-					  <td><a href="item.php">2<a></td>
-				</tr>
-				<tr >
-					  <td><a href="item.php">ALBERT BISHOP PARK<a></td>
-					  <td><a href="item.php">HEDLEY AVE,NUNDAH<a></td>
-					  <td><a href="item.php">Big, Training<a></td>
-					  <td><a href="item.php">5<a></td>
-				</tr> -->
 			</table>
 		</div>
 		<?php include 'components/footer.inc'; ?>

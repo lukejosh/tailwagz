@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 	<?php 
-		include "php/authentication.php";
-		include "php/functions.php";
+		include "php/common.inc";
+		include "php/signout.inc";
 		session_start();
 		
-		logout();	
+		signout();	
 	?>
 	<head>
 		<meta charset="UTF-8">
@@ -13,14 +13,13 @@
 		<title>Dog Park Reviews</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
-		<script type="text/javascript" src="js/javascript.js"></script>	
-				
+		<script type="text/javascript" src="js/javascript.js"></script>				
 	</head>
 	<body>
 		<?php include 'components/header.inc';?>
 		<div id="body">
-			<p id="title">Log Out</p>
-			<p class="error">Successfully Logged Out</p>
+			<p id="title">Sign Out</p>
+			<p class="error">Successfully Signed Out</p>
 		</div>
 		<?php include 'components/footer.inc'; ?>
 	</body>

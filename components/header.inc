@@ -1,8 +1,8 @@
 <div id="header">
 		<div id="authBanner">			
 		<?php
-			show_session_username();
-			show_session_actions();				
+			display_session_username();
+			display_session_actions();				
 		?></div>
 		<a id="imageBanner" href="index.php" class="logo">
 			<img src="images/logo.png" alt="TailWagz logo">

@@ -1,5 +1,5 @@
 <?php
-	function logout(){
+	function signout(){
 		session_id();		
 		// Unset all of the session variables.
 		$_SESSION = array();

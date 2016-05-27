@@ -16,7 +16,7 @@ CREATE TABLE Tailwagz.Users(
 CREATE TABLE Tailwagz.Reviews(
 	id integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	parkID integer NOT NULL,
-    username integer NOT NULL,
+    username varchar(64) NOT NULL,
     message varchar(255) NOT NULL,
 	rating integer NOT NULL,
 	tag varchar(64),

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		include "php/authentication.php";
-		include "php/functions.php";
+		include "php/common.inc";
+		include "php/index.inc";
 		session_start();			
 	?>
 	<head>
@@ -28,7 +28,7 @@
 					if (!isset($_SESSION['isLoggedOn']))
 					{
 						?>
-						<a href="login.php" class="more">log in</a>
+						<a href="signin.php" class="more">sign in</a>
 						<a href="signup.php" class="more">sign up</a><?php	
 					}?>
 				</div>

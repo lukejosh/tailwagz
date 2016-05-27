@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		include "php/authentication.php";
-		include "php/functions.php";
+		include "php/common.inc";
+		include "php/signup.inc";
 		session_start();	
 		
 		if (isset($_POST['signup'])) {
