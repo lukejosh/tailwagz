@@ -35,27 +35,27 @@ session_start();
     </div>
     <div id="categories">
         <h1>Popular Categories</h1>
-        <a href="results.php">
+        <a href="results.php?category=beach">
             <img src="images/dog-beach.jpg" alt="">
             <p>Beach</p>
         </a>
-        <a href="results.php">
+        <a href="results.php?category=friendy">
             <img src="images/dog-friendly.jpg" alt="">
             <p>Friendly</p>
         </a>
-        <a href="results.php">
+        <a href="results.php?category=training">
             <img src="images/dog-training.jpg" alt="">
             <p>Training</p>
         </a>
-        <a href="results.php">
+        <a href="results.php?category=quiet">
             <img src="images/dog-quiet.jpg" alt="">
             <p>Quiet</p>
         </a>
-        <a href="results.php">
+        <a href="results.php?category=busy">
             <img src="images/dog-busy.jpg" alt="">
             <p>Busy</p>
         </a>
-        <a href="results.php">
+        <a href="results.php?category=big">
             <img src="images/dog-big.jpg" alt="">
             <p>Big</p>
         </a>
