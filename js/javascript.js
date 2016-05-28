@@ -36,8 +36,6 @@ function initMap(lati, longi, parkname) {
 	  center: myLatLng,
 	  mapTypeId: google.maps.MapTypeId.HYBRID
 	});
-
-    console.log(window.map);
 	
 	var contentString = parkname;
 	

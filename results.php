@@ -16,9 +16,9 @@
 	</head>
 	<body>
 		<?php include 'components/header.inc'; ?>
-		<div id="body" onload="initMap()">
+		<div id="body">
 			<p id="title">Results</p>
-			<div id="googleMap"></div>
+			<div id="googleMap" class="googleMap"></div> <!-- Placeholder for the Google Map element -->
 			<div class="results">
 				<table>
 					<tr>
@@ -31,19 +31,19 @@
 					<?php
 					include 'php/functions.php';
 
-					foreach($_GET as $key => $value){
+					foreach($_GET as $key => $value){ //Find used GET parameter - i.e., what was searched by
 						if ($value != ""){
 							break;
 						}
 					}
 					if ($key == 'lat' or $key == 'lon'){
-						$results = get_parks_near_user($_GET['lat'], $_GET['lon'], 10);
+						$results = get_parks_near_user($_GET['lat'], $_GET['lon'], 2);
 					}
 					else{
 						$results = query_park_column($key, $value);
 					}
 
-					foreach($results as $park){
+					foreach($results as $park){ //Create table containing parks
 						echo "<tr>";
 							echo "<td><a href=\"item.php?id=".$park['parkid']."\">".$park['name']."<a></td>";
 							echo "<td><a href=\"item.php?id=".$park['parkid']."\">".$park['suburb'].", ".$park['street']."<a></td>";
@@ -56,13 +56,16 @@
 					?>
 				</table>
 			<div>
-				<div class="googleMap" id="googleMap"></div>
-				<script>
+ 				<script> //Create google map with all results
+					var lat = <?php echo $_GET['lat']; ?>;
+					var lon = <?php echo $_GET['lon']; ?>;
+					initMap(lat, lon, "Your Location");
 					<?php
-						echo "initMap(".$_GET['lat'].", ".$_GET['lon'].", \"Your Location\");";
-						// foreach($results as $park){
-						// 	echo "addMarker($park['latitude'], $park['longitude'], $park['parkname']);";
-						// }
+					// echo "console.log(".$results[0]['latitude'].")";
+						foreach($results as $park){
+							
+							echo "addMarker(".$park['latitude'].", ".$park['longitude'].", \"".$park['name']."\");";
+						}
 					?>
 				</script>
 			</div>

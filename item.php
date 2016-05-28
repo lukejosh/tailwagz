@@ -31,7 +31,7 @@
 					echo "<script> var name = \"".$semantics['name']."\";</script>";
 				}
 			?>
-			</div>
+		</div>
 		<div>
 			<div class="googleMap" id="googleMap"></div>
 			<script>
