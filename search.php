@@ -27,10 +27,10 @@
 				</select>
 				<select name="rating" id="rating" onchange="revert_other_searches('rating')">
 					<option value="">Select a minimum rating</option>
-					<option value="2">> 1 Star</option>
-					<option value="3">> 2 Stars</option>					
-					<option value="4">> 3 Stars</option>
-					<option value="5">> 4 Stars</option>
+					<option value="1">> 1 Star</option>
+					<option value="2">> 2 Stars</option>
+					<option value="3">> 3 Stars</option>
+					<option value="4">> 4 Stars</option>
 				</select>
 				<select name="category" id="category" onchange="revert_other_searches('category')">
 					<option value="">Select a category</option>
