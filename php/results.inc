@@ -17,7 +17,8 @@ function get_parks_by_rating($min){
 }
 
 function get_parks_by_search($text){
-    $query = "SELECT * FROM parks WHERE parkid IN (SELECT parkID from reviews WHERE message LIKE \"%".$text."%\")";
+    $lower_string = strtolower($text);
+    $query = "SELECT * FROM parks WHERE parkid IN (SELECT parkID from reviews WHERE LOWER(message) LIKE \"%".$lower_string."%\")";
 
     return perform_sql_query($query, null);
 }
