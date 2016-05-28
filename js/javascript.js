@@ -85,7 +85,7 @@ function revert_other_searches(keepid){
 }
 
 function location_callback(loc) {
-    window.location.href = "results.php?lat=".concat(loc.coords.latitude, "&lon=", loc.coords.longitude);
+    window.location.href = "results.php?lat=".concat(loc.coords.latitude, "&lon=", loc.coords.longitude, "&distance=", document.getElementById("distance").value);
 }
 
 function user_location_link(){

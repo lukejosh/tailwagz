@@ -38,9 +38,9 @@ function    get_search_results(){
     }
 
     foreach($_GET as $field => $value){
-        if ($value != ""){
+        if ($value != "" & $value != "distance"){
             if ($field == 'lat' or $field == 'lon'){
-                return get_parks_by_location($_GET['lat'], $_GET['lon'], 10);
+                return get_parks_by_location($_GET['lat'], $_GET['lon'], $_GET['distance']);
                 // Need to add a check for if both lat and long are set
                 // Will cause issues if one is not set
             }
