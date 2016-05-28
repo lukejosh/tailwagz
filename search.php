@@ -21,7 +21,7 @@
 			<p id="title">Search</p>
 			<?php display_error_message();?>
 			<form action="results.php">
-				<a href="search.php" class="submit" id="location"><p>Search By Location</p></a>
+				<a href="search.php" class="submit" id="location" onclick="user_location_link()"><p>Search By Location</p></a>
 				<p>or select one of the following</p>
 				<select name="suburb" id="suburb" onchange="revert_other_searches('suburb')">
 					<option value="">Select a suburb</option>

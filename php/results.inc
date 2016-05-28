@@ -5,6 +5,13 @@
 		return perform_sql_query($pdo, $query, null);
 	 }
 	 
+	 function get_parks_by_location($lat, $long, $distance){
+		$pdo = get_sql_connector_aws();
+		$query = "SELECT * FROM parks WHERE haversine(latitude, longitude, ".$lat.", ".$long.") < ".$distance;
+		
+		return perform_sql_query($pdo, $query, null);
+	}
+	 
 	 function get_search_results(){
 		//Need to add logic to this to support the different types of searches
 		$pdo = get_sql_connector_aws();
@@ -14,15 +21,22 @@
 		}
 		
 		while($value = current($_GET)){
-			if ($value != ""){		
-				$field = key($_GET);
+			$field = key($_GET);
+			
+			if ($value != ""){
+				if ($field == 'lat' or $field == 'lon'){
+					return get_parks_by_location($_GET['lat'], $_GET['lon'], 10);
+					// Need to add a check for if both lat and long are set
+					// Will cause issues if one is not set
+				}
+				
 				$query = "SELECT * FROM parks WHERE $field LIKE '%$value%'";
 				return perform_sql_query($pdo, $query, null);
 			}
 			next($_GET);
-		}		
+		}
 		
-		return get_all_parks();	// 	Caters for if all form parameter are emppty
+		return get_all_parks();	// 	Caters for if all form parameter are empty
 	 }
 	 
 	 function display_results_rows($results_data){
