@@ -31,9 +31,13 @@ function get_parks_by_category($category){
 }
 
 function    get_search_results(){
-    if(empty($_GET) | array_unique(array_values($_GET)) == array(0 => "")){
+    $actual_unique = array_unique(array_values($_GET));
+    $compare_unique = array(0 => $_GET['distance'], 1 => "");
+    sort($actual_unique);
+    sort($compare_unique);
+
+    if(empty($_GET) | $actual_unique == $compare_unique){
         // Checks that get exists and has values
-        echo "<script> alert(\"RETURNING ALL\");</script>";
         return get_all_parks();
     }
 
