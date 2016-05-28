@@ -4,6 +4,7 @@
 include "php/common.inc";
 include "php/results.inc";
 session_start();
+session_id();
 
 $results_data = get_search_results()->fetchAll();
 ?>
@@ -25,15 +26,7 @@ $results_data = get_search_results()->fetchAll();
     <p id="title">Results</p>
     <?php display_error_message();?>
     <?php display_map($results_data);?>
-    <table id="results">
-        <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Tags</th>
-            <th>Rating</th>
-        </tr>
-        <?php display_results_rows($results_data)?>
-    </table>
+    <?php display_results_table($results_data)?>
 </div>
 <?php include 'components/footer.inc'; ?>
 </body>

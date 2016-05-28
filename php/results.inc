@@ -33,34 +33,62 @@ function get_parks_by_category($category){
 function    get_search_results(){
     if(empty($_GET) | array_unique(array_values($_GET)) == array(0 => "")){
         // Checks that get exists and has values
-        echo "<script> alert(\"RETURNING ALL\");</script>";
+        //echo "<script> alert(\"RETURNING ALL\");</script>";
         return get_all_parks();
     }
 
     foreach($_GET as $field => $value){
+		$value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
         if ($value != ""){
-            if ($field == 'lat' or $field == 'lon'){
-                return get_parks_by_location($_GET['lat'], $_GET['lon'], 10);
-                // Need to add a check for if both lat and long are set
-                // Will cause issues if one is not set
+            if ($field == 'lat' && $_GET['lon'] != ""){
+				$lon = htmlspecialchars($_GET['lon'], ENT_QUOTES, 'UTF-8');
+                $result = get_parks_by_location($value, $lon, 10);
+				break;
+            }
+			
+			if ($field == 'lon' && $_GET['lat'] != ""){
+                $lat = htmlspecialchars($_GET['lat'], ENT_QUOTES, 'UTF-8');
+                $result = get_parks_by_location($lat, $value, 10);
+				break;
             }
 
             else if ($field == 'rating') {
-                return get_parks_by_rating($value);
+                $result = get_parks_by_rating($value);
+				break;
             }
 
             else if ($field == 'search'){
-                return get_parks_by_search($value);
+                $result = get_parks_by_search($value);
+				break;
             }
 
             else if ($field == 'category'){
-                return get_parks_by_category($value);
+                 $result = get_parks_by_category($value);
+				 break;
             }
         }
+		
     }
+
+	if($result->rowCount() < 1){
+		$_SESSION['errorMessage'] = 'No parks matched your search';
+        header("Location: http://{$_SERVER['HTTP_HOST']}/cab230-assignment1/search.php?".$field."=".$value);
+        exit();
+	}
+	
+	return $result;
 }
 
-function display_results_rows($results_data){
+function display_results_table($results_data){
+	
+	echo '<table id="results">'.
+        '<tr>'.
+            '<th>Name</th>'.
+            '<th>Location</th>'.
+            '<th>Tags</th>'.
+            '<th>Rating</th>'.
+        '</tr>';
+	
     foreach($results_data as $park){
         echo "<tr id=\"row\">";
         echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['name']."<a></td>";
@@ -69,5 +97,7 @@ function display_results_rows($results_data){
         echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['rating']."<a></td>";
         echo "</tr>";
     }
+	
+	echo '</table>';
 }
 ?>

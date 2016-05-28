@@ -22,15 +22,26 @@ function get_reviews_by_id($parkID){
 
 function display_park_info($search_data){
     $park = $search_data[0];
-
-    echo "<p><b>Dog Park Name:</b> ".$park['name']."<br>";
-    echo "<b>Street:</b> ".$park['street']."<br>";
-    echo "<b>Suburb:</b> ".$park['suburb']."<br>";
-    echo "<b>Tags:</b> ".$park['category']."<br>";
-    echo "<b>Rating:</b>".$park['rating']."</p>";
-    echo "<script> var lat = ".$park['latitude'].";";
-    echo "var long = ".$park['longitude'].";";
-    echo "var name = \"".$park['name']."\";</script>";
+	
+	echo 	"<p><b>Dog Park Name:</b><span itemprop='name'>".$park['name']."</span><br>".
+			"<span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>".			
+				"<b>Street:</b> <span itemprop='streetAddress'>".$park['street']."</span><br>".
+				"<b>Suburb:</b> <span itemprop='addressLocality'>".$park['suburb']."</span><br>".
+			"</span>".
+			"<span itemprop='aggregateRating' itemscope itemtype='http://schema.org/AggregateRating'>".
+				"<b>No. Reviews:</b> <span itemprop='ratingValue'>".$park['rating']."</span><br>".
+				"<b>Rating:</b> <span itemprop='reviewCount'>".$park['rating']."</span><br>".
+			"</span>".
+			"<b>Tags:</b> ".$park['category']."<br>".
+			"<div itemprop='geo' itemscope itemtype='http://schema.org/GeoCoordinates'>".
+				"<meta itemprop='latitude' content='40.75' />".
+				"<meta itemprop='longitude' content='73.98' />".
+			"</div>";
+	
+    echo 	"<script> var lat = ".$park['latitude'].";".
+				"var long = ".$park['longitude'].";".
+				"var name = \"".$park['name']."\";".
+			"</script>";
 }
 
 function display_reviews($review_data){
@@ -38,8 +49,21 @@ function display_reviews($review_data){
         echo '<p class="error">There are no reviews for this park</p>';
     } else {
         foreach($review_data as $review){
-            $timestamp = date("d M Y", strtotime($review['dateCreated']));
-            echo '<p><b>'.$review['rating'].' out of 5</b> - <i>"'.$review['message'].'"</i> - <b>'.$review['username'].'</b> on '.$timestamp.'<br></p>';
+            $dateText = date("d M Y", strtotime($review['dateCreated']));
+            $datePublished = date("y-m-d", strtotime($review['dateCreated']));
+			
+			echo 	"<div itemprop='review' itemscope itemtype='http://schema.org/Review'>".
+						"<p>".
+							"<b><span id='reviewRating' itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'>".
+								"<span itemprop='ratingValue'>".$review['rating']."</span> out of ".
+								"<span itemprop='bestRating'>5</span> stars".
+							"</span></b> - ".
+							"\"<i><span itemprop='name'>".$review['message']."</span></i>\" - ".						
+							"<b><span itemprop='author'>".$review['username']."</span></b> ".
+							"on ".$dateText."<br>".
+							"<meta itemprop='datePublished' content=".$datePublished.">".
+						"</p>".
+					"</div>";
         }
     }
 }
