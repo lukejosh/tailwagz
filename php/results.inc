@@ -16,7 +16,13 @@ function get_parks_by_rating($min){
     return perform_sql_query($query, null);
 }
 
-function get_search_results(){
+function get_parks_by_search($text){
+    $query = "SELECT * FROM parks WHERE parkid IN (SELECT parkID from reviews WHERE message LIKE \"%".$text."%\")";
+
+    return perform_sql_query($query, null);
+}
+
+function    get_search_results(){
     if(empty($_GET) | array_unique(array_values($_GET)) == array(0 => "")){
         // Checks that get exists and has values
         echo "<script> alert(\"RETURNING ALL\");</script>";
@@ -33,6 +39,10 @@ function get_search_results(){
 
             else if ($field == 'rating') {
                 return get_parks_by_rating($value);
+            }
+
+            else if ($field == 'search'){
+                return get_parks_by_search($value);
             }
         }
     }
