@@ -34,12 +34,12 @@ session_start();
         </select>
         <select name="category" id="category" onchange="revert_other_searches('category')">
             <option value="">Select a category</option>
-            <option value="2">Beach</option>
-            <option value="3">Friendly</option>
-            <option value="4">Training</option>
-            <option value="5">Quiet</option>
-            <option value="6">Busy</option>
-            <option value="7">Big</option>
+            <option value="beach">Beach</option>
+            <option value="friendly">Friendly</option>
+            <option value="training">Training</option>
+            <option value="quiet">Quiet</option>
+            <option value="busy">Busy</option>
+            <option value="big">Big</option>
         </select>
         <input type="text" name="search" id="search" value="" placeholder="Keyword" onchange="revert_other_searches('search')">
         <input type="submit" class="submit" id="search_btn" value="Search">

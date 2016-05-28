@@ -23,6 +23,13 @@ function get_parks_by_search($text){
     return perform_sql_query($query, null);
 }
 
+function get_parks_by_category($category){
+    $lower_string = strtolower($category);
+    $query = "SELECT * FROM parks WHERE LOWER(category) LIKE \"%".$lower_string."%\"";
+
+    return perform_sql_query($query, null);
+}
+
 function    get_search_results(){
     if(empty($_GET) | array_unique(array_values($_GET)) == array(0 => "")){
         // Checks that get exists and has values
@@ -44,6 +51,10 @@ function    get_search_results(){
 
             else if ($field == 'search'){
                 return get_parks_by_search($value);
+            }
+
+            else if ($field == 'category'){
+                return get_parks_by_category($value);
             }
         }
     }
