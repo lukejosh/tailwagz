@@ -19,7 +19,14 @@ session_start();
     <p id="title">Search</p>
     <?php display_error_message();?>
     <form action="results.php">
-        <a class="submit" id="location" onclick="user_location_link()"><p>Search By Location</p></a>
+        <a class="submit" id="location" onclick="user_location_link();"><p>Search By Location</p></a>
+        <select name="distance" id="distance" onchange="revert_other_searches('distance')">
+            <option value="5"><1km</option>
+            <option value="5"><5km</option>
+            <option value="5"><10km</option>
+            <option value="5"><20km</option>
+            <option value="5"><50km</option>
+        </select>
         <p>or select one of the following</p>
         <select name="suburb" id="suburb" onchange="revert_other_searches('suburb')">
             <option value="">Select a suburb</option>
