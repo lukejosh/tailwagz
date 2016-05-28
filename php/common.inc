@@ -21,7 +21,7 @@ function perform_sql_query($query, $parameters){
 
         return $result;
     } catch (PDOException $e) {
-        $_SESSION['errorMessage'] = json_encode($parameters)."".$e->getMessage();
+        $_SESSION['errorMessage'] = $result->queryString."<br><br>".json_encode($parameters)."<br><br>".$e->getMessage();
         header("Location: http://{$_SERVER['HTTP_HOST']}/cab230-assignment1/error.php");
         exit();
     }

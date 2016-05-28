@@ -8,7 +8,8 @@ function get_park_by_id($parkID){
 
 function get_reviews_by_id($parkID){
     $query = 'SELECT * FROM reviews '.
-        'WHERE parkID=:parkID';
+        'WHERE parkID=:parkID '.
+		'ORDER BY dateCreated DESC';
     $parameters['parkID'] = htmlspecialchars($parkID, ENT_QUOTES, 'UTF-8');
 
     $result = perform_sql_query($query, $parameters);
@@ -37,7 +38,8 @@ function display_reviews($review_data){
         echo '<p class="error">There are no reviews for this park</p>';
     } else {
         foreach($review_data as $review){
-            echo '<p><b>'.$review['rating'].' out of 5</b> - <i>"'.$review['message'].'" - '.$review['username'].'</i><p>';
+            $timestamp = date("d M Y", strtotime($review['dateCreated']));
+			echo '<p><b>'.$review['rating'].' out of 5</b> - <i>"'.$review['message'].'"</i> - <b>'.$review['username'].'</b> on '.$timestamp.'<br></p>';
         }
     }
 }
@@ -47,17 +49,18 @@ function add_review(array $data){
     $parkID = htmlspecialchars($data['parkID'], ENT_QUOTES, 'UTF-8');
     $message = htmlspecialchars($data['message'], ENT_QUOTES, 'UTF-8');
     $rating = htmlspecialchars($data['rating'], ENT_QUOTES, 'UTF-8');
+	$category = htmlspecialchars($data['category'], ENT_QUOTES, 'UTF-8');
 
     if(is_previous_review($parkID, $username)){
-        update_previous_review($parkID, $username, $message, $rating);
+        update_previous_review($parkID, $username, $message, $rating, $category);
         $_SESSION['errorMessage'] = 'You have already reviewed this park<br>'.
             'Your previous review has been updated';
 
     }else{
-        create_new_review($parkID, $username, $message, $rating);
+        create_new_review($parkID, $username, $message, $rating, $category);
     }
 
-    update_park_rating($parkID);
+    update_park_info($parkID);
 }
 
 function is_previous_review($parkID, $username){
@@ -76,49 +79,63 @@ function is_previous_review($parkID, $username){
     return false;
 }
 
-function update_previous_review($parkID, $username, $message, $rating){
+function update_previous_review($parkID, $username, $message, $rating, $category){
     $query = 'UPDATE reviews '.
-        'SET message = :message, rating = :rating '.
-        'WHERE parkID = :parkID and username = :username';
+			'SET message = :message, rating = :rating, '.
+			'category = :category '.
+			'WHERE parkID = :parkID and username = :username';
 
     $parameters['parkID'] = $parkID;
     $parameters['username'] = $username;
     $parameters['message'] = $message;
-    $parameters['rating'] = $rating;
+    $parameters['rating'] = intval($rating);
+	$parameters['category'] = $category;
 
     $result = perform_sql_query($query, $parameters);
 }
 
-function create_new_review($parkID, $username, $message, $rating){
+function create_new_review($parkID, $username, $message, $rating, $category){
     $query = ''.
-        'INSERT INTO reviews (parkID, username, message, rating) '.
-        'VALUES(:parkID, :username, :message, :rating)';
+		'INSERT INTO reviews (parkID, username, message, rating, category) '.
+		'VALUES(:parkID, :username, :message, :rating, :category)';
 
-    $parameters['parkID'] = $parkID;
+    $parameters['parkID'] = intval($parkID);
     $parameters['username'] = $username;
     $parameters['message'] = $message;
-    $parameters['rating'] = $rating;
+    $parameters['rating'] = intval($rating);
+	$parameters['category'] = $category;
 
     $result = perform_sql_query($query, $parameters);
 }
 
-function update_park_rating($parkID){
+function update_park_info($parkID){
     $query = 'UPDATE parks '.
-        'SET rating=:rating '.
-        'WHERE parkid=:parkid';
+		'SET rating= :rating, '.
+		'category= :category '.
+		'WHERE parkid= :parkid ';
     $rating = 0.0;
     $number_of_reviews = 0.0;
     $reviews = get_reviews_by_id($parkID);
-
-    foreach($reviews as $review){
-        $rating += intval($review['rating']);
-        $number_of_reviews += 1;
-    }
+	$category = " ";
+		
+	foreach($reviews as $review){
+		$number_of_reviews += 1;
+		$rating += intval($review['rating']);
+		
+		if ($review['category'] != "" && strpos($category, $review['category']) == false){
+			if ($category == " "){
+				$category .= $review['category'];
+			} else {
+				$category .= ", ".$review['category'];
+			}	
+		}
+	}
 
     $rating = $rating / $number_of_reviews;
 
-    $parameters['parkid'] = $parkID;
-    $parameters['rating'] = $rating;
+    $parameters['parkid'] = intval($parkID);
+	$parameters['rating'] = intval($rating);
+	$parameters['category'] = $category;
 
     $result = perform_sql_query($query, $parameters);
 }
