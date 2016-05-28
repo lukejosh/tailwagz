@@ -1,17 +1,13 @@
 <?php
 	function get_sql_connector(){
-		$pdo = new PDO('mysql:host=localhost;dbname=tailwagz', 'root', ''); 
+		$pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=tailwagz', 'admin', 'masterpassword');
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
 		return $pdo;
 	}
 	
-	function get_sql_connector_aws(){
-		$pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=n9155554', 'admin', 'masterpassword');
-		//$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-		return $pdo;
-	}
-	
-	function perform_sql_query($pdo, $query, $parameters){
+	function perform_sql_query($query, $parameters){
+		$pdo = get_sql_connector();
+		
 		try {			 
 			$result = $pdo->prepare($query);
 					

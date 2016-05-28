@@ -1,20 +1,17 @@
 <?php
 	function get_all_parks(){
-		$pdo = get_sql_connector_aws();
 		$query = 'SELECT * FROM parks';
-		return perform_sql_query($pdo, $query, null);
+		return perform_sql_query($query, null);
 	 }
 	 
 	 function get_parks_by_location($lat, $long, $distance){
-		$pdo = get_sql_connector_aws();
 		$query = "SELECT * FROM parks WHERE haversine(latitude, longitude, ".$lat.", ".$long.") < ".$distance;
 		
-		return perform_sql_query($pdo, $query, null);
+		return perform_sql_query($query, null);
 	}
 	 
 	 function get_search_results(){
 		//Need to add logic to this to support the different types of searches
-		$pdo = get_sql_connector_aws();
 		
 		if(is_null($_GET)){
 			return get_all_parks();
@@ -31,7 +28,7 @@
 				}
 				
 				$query = "SELECT * FROM parks WHERE $field LIKE '%$value%'";
-				return perform_sql_query($pdo, $query, null);
+				return perform_sql_query($query, null);
 			}
 			next($_GET);
 		}

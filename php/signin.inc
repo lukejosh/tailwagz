@@ -1,7 +1,6 @@
 <?php
 	function signin(array $signin_data){
 		session_id();
-		$pdo = get_sql_connector();
 		$query = ''.
 				'SELECT * '.
 				'FROM users '.
@@ -10,7 +9,7 @@
 
 		$parameters['username'] = $signin_data['username'];
 		$parameters['password'] = $signin_data['password'];
-		$result = perform_sql_query($pdo, $query, $parameters);
+		$result = perform_sql_query($query, $parameters);
 									
 		if ($result->rowCount() > 0){ 
 			session_start(); 
