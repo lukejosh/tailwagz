@@ -1,6 +1,6 @@
-CREATE SCHEMA Tailwagz;
+create schema tailwagz;
 
-CREATE TABLE Tailwagz.Users(
+CREATE TABLE tailwagz.users(
 	id integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	username varchar(64) NOT NULL UNIQUE,
 	password varchar(64) NOT NULL,
@@ -13,12 +13,12 @@ CREATE TABLE Tailwagz.Users(
 	sex varchar(64)
 );
 
-CREATE TABLE Tailwagz.Reviews(
+CREATE TABLE tailwagz.reviews(
 	id integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	parkID integer NOT NULL,
     username varchar(64) NOT NULL,
     message varchar(255) NOT NULL,
 	rating integer NOT NULL,
 	tag varchar(64),
-	FOREIGN KEY (username) REFERENCES Users(username)
+	FOREIGN KEY (username) REFERENCES users(username)
 );

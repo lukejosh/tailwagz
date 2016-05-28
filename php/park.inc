@@ -1,19 +1,17 @@
 <?php
 
 	function get_park_by_id($parkID){
-		$pdo = get_sql_connector_aws();
 		$query = "SELECT * from parks WHERE parkID = ".$parkID;
-		$result = perform_sql_query($pdo, $query, null);
+		$result = perform_sql_query($query, null);
 		return $result;
 	}
 	
 	function get_reviews_by_id($parkID){
-		$pdo = get_sql_connector();
 		$query = 'SELECT * FROM reviews '.
 				'WHERE parkID=:parkID';
 		$parameters['parkID'] = htmlspecialchars($parkID, ENT_QUOTES, 'UTF-8');
 		
-		$result = perform_sql_query($pdo, $query, $parameters);
+		$result = perform_sql_query($query, $parameters);
 								
 		if ($result->rowCount() > 0){			
 			return $result;
@@ -62,16 +60,14 @@
 		update_park_rating($parkID);
 	}
 	
-	function is_previous_review($parkID, $username){
-		$pdo = get_sql_connector();
-		
+	function is_previous_review($parkID, $username){		
 		$query = 'SELECT * FROM reviews '.
 				'WHERE parkID = :parkID and username = :username';
 				
 		$parameters['parkID'] = $parkID;
 		$parameters['username'] = $username;
 		
-		$result = perform_sql_query($pdo, $query, $parameters);
+		$result = perform_sql_query($query, $parameters);
 		
 		if ($result->rowCount() > 0){
 			return true;
@@ -80,9 +76,7 @@
 		return false;
 	}
 	
-	function update_previous_review($parkID, $username, $message, $rating){
-		$pdo = get_sql_connector();
-		
+	function update_previous_review($parkID, $username, $message, $rating){		
 		$query = 'UPDATE reviews '.
 				'SET message = :message, rating = :rating '.
 				'WHERE parkID = :parkID and username = :username';
@@ -92,13 +86,10 @@
 		$parameters['message'] = $message;
 		$parameters['rating'] = $rating;
 		
-		$result = perform_sql_query($pdo, $query, $parameters);
-		//$result = perform_sql_query($pdo, $query, null);
+		$result = perform_sql_query($query, $parameters);
 	}
 	
 	function create_new_review($parkID, $username, $message, $rating){
-		$pdo = get_sql_connector();
-		
 		$query = ''.
 			'INSERT INTO reviews (parkID, username, message, rating) '.
 			'VALUES(:parkID, :username, :message, :rating)';
@@ -108,10 +99,13 @@
 		$parameters['message'] = $message;
 		$parameters['rating'] = $rating;
 		
-		$result = perform_sql_query($pdo, $query, $parameters);
+		$result = perform_sql_query($query, $parameters);
 	}
 	
 	function update_park_rating($parkID){
+		$query = 'UPDATE parks '.
+				'SET rating=:rating '.
+				'WHERE parkid=:parkid';
 		$rating = 0.0;
 		$number_of_reviews = 0.0;
 		$reviews = get_reviews_by_id($parkID);
@@ -121,18 +115,12 @@
 			$number_of_reviews += 1;
 		}
 		
-		$rating = $rating / $number_of_reviews;
-		
-		$pdo = get_sql_connector_aws();
-		
-		$query = 'UPDATE parks '.
-				'SET rating=:rating '.
-				'WHERE parkid=:parkid';
+		$rating = $rating / $number_of_reviews;		
 				
 		$parameters['parkid'] = $parkID;
 		$parameters['rating'] = $rating;
 		
-		$result = perform_sql_query($pdo, $query, $parameters);
+		$result = perform_sql_query($query, $parameters);
 	}
 
 ?>
