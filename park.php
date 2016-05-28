@@ -50,15 +50,15 @@ $reviews_data = get_reviews_by_id($_GET['id']);
                     <option value="4">4 Stars</option>
                     <option value="5">5 Stars</option>
                 </select>
-				<select name="category" id="category">
-							<option value="">Select a suitable category</option>
-							<option value="Beach">Beach</option>
-							<option value="Friendly">Friendly</option>					
-							<option value="Training">Training</option>
-							<option value="Quiet">Quiet</option>
-							<option value="Busy">Busy</option>
-							<option value="Big">Big</option>
-						</select>
+                <select name="category" id="category">
+                    <option value="">Select a suitable category</option>
+                    <option value="Beach">Beach</option>
+                    <option value="Friendly">Friendly</option>
+                    <option value="Training">Training</option>
+                    <option value="Quiet">Quiet</option>
+                    <option value="Busy">Busy</option>
+                    <option value="Big">Big</option>
+                </select>
                 <input type="submit" class="submit" name="submit_review" id="submit_review" value="Add Review"/>
             </form>
         </div>
