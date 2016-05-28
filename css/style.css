@@ -341,12 +341,12 @@
 	color: #540B2C;
 }
 
-#body #results .row {
-	font-style: none;
+#body #results #park_title {
+	color: #540B2C;
 }
 
-#body #results .row:hover{
-	font-style: italic;
+#body #results #park_title:hover {
+	color: #4DBD33;
 }
 
 #body #results tr td a {

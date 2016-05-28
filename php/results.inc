@@ -31,29 +31,35 @@ function get_parks_by_category($category){
 }
 
 function    get_search_results(){
-    $actual_unique = array_unique(array_values($_GET));
-    $compare_unique = array(0 => $_GET['distance'], 1 => "");
-    sort($actual_unique);
-    sort($compare_unique);
+    //$actual_unique = array_unique(array_values($_GET));
+    //$compare_unique = array(0 => $_GET['distance'], 1 => "");
+    //sort($actual_unique);
+    //sort($compare_unique);
 
-    if(empty($_GET) | $actual_unique == $compare_unique){
+    if(empty($_GET)){
         // Checks that get exists and has values
         //echo "<script> alert(\"RETURNING ALL\");</script>";
         return get_all_parks();
     }
+	
+	if($_GET['distance'] == ""){
+		$distance = 10;
+	} else {
+		$distance = htmlspecialchars($_GET['distance'], ENT_QUOTES, 'UTF-8');
+	}
 
     foreach($_GET as $field => $value){
 		$value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
         if ($value != "" & $value != "distance"){
-            if ($field == 'lat' && $_GET['lon'] != "" && $_GET['distance'] != ""){
+            if ($field == 'lat' && $_GET['lon'] != ""){
 				$lon = htmlspecialchars($_GET['lon'], ENT_QUOTES, 'UTF-8');
-                $result = get_parks_by_location($value, $lon, 10, $_GET['distance']);
+                $result = get_parks_by_location($value, $lon, $distance);
 				break;
             }
 			
-			if ($field == 'lon' && $_GET['lat'] != "" && $_GET['distance'] != ""){
+			if ($field == 'lon' && $_GET['lat'] != ""){
                 $lat = htmlspecialchars($_GET['lat'], ENT_QUOTES, 'UTF-8');
-                $result = get_parks_by_location($lat, $value, 10, $_GET['distance']);
+                $result = get_parks_by_location($lat, $value, $distance);
 				break;
             }
 
@@ -96,7 +102,7 @@ function display_results_table($results_data){
 	
     foreach($results_data as $park){
         echo "<tr id=\"row\">";
-        echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['name']."<a></td>";
+        echo "<td ><a id='park_title' href=\"park.php?id=".$park['parkid']."\">".$park['name']."<a></td>";
         echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['suburb'].", ".$park['street']."<a></td>";
         echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['category']."<a></td>";
         echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['rating']."<a></td>";
