@@ -2,13 +2,27 @@
 <html>
 <?php
 include "php/common.inc";
+include 'php/validate.inc';
 include "php/signup.inc";
 session_start();
 
 if (isset($_POST['signup'])) {
-	// Need to add validation of data here
-    signup($_POST);
-    // If login fails we need to add logic to refill forms
+	$_POST = remove_scripts($_POST);
+	
+	$validated = true;
+	$validated = $validated && validate_username($_POST, 'username');
+	$validated = $validated && validate_name($_POST, 'firstname');
+	$validated = $validated && validate_name($_POST, 'lastname');
+	$validated = $validated && validate_email($_POST, 'email');
+	$validated = $validated && validate_date($_POST, 'dob');
+	$validated = $validated && validate_gender($_POST, 'gender');
+	$validated = $validated && validate_number($_POST, 'mobile');
+	$validated = $validated && validate_password($_POST, 'password');
+	$validated = $validated && check_passwords_match($_POST , 'password' , 'confpassword');
+	
+	if($validated){
+		signup($_POST);
+	}
 }
 ?>
 <head>
@@ -29,10 +43,10 @@ if (isset($_POST['signup'])) {
         <input type="text" name="firstname" id="firstname" placeholder="First Name" required/>
         <input type="text" name="lastname" id="lastname" placeholder="Last Name" required/>
         <input type="email" name="email" id="email" placeholder="E-Mail Address" required/>
-        <input type="number" name="mobile" id="mobile" placeholder="Phone number" required/>
+        <input type="text" name="mobile" id="mobile" placeholder="Phone number" required/>
         <input type="password" name="password" id="password" placeholder="Password" required/>
         <input type="password" name="confpassword" id="confpassword" placeholder="Confirm Password" onchange="validate_password();" required/>
-        <input type="date" class="date" name="dob" id="dob" placeholder="02/02/1996" required/>
+        <input type="date" class="date" name="dob" id="dob" placeholder="Date of birth (yyy/mm/dd)" required/>
         <div id="rbuttons">
             <input type="radio" name="sex" value="male"/>
             <label >Male</label>

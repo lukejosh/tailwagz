@@ -30,6 +30,7 @@ CREATE TABLE n9438726.reviews(
     username varchar(64) NOT NULL,
     message varchar(255) NOT NULL,
 	rating integer NOT NULL,
-	tag varchar(64),
+	category varchar(255),
+	dateCreated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 	FOREIGN KEY (username) REFERENCES users(username)
 );

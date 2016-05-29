@@ -39,7 +39,7 @@ session_start();
             <img src="images/dog-beach.jpg" alt="">
             <p>Beach</p>
         </a>
-        <a href="results.php?category=friendy">
+        <a href="results.php?category=friendly">
             <img src="images/dog-friendly.jpg" alt="">
             <p>Friendly</p>
         </a>

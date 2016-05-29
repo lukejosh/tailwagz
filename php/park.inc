@@ -23,7 +23,7 @@ function get_reviews_by_id($parkID){
 function display_park_info($search_data){
     $park = $search_data[0];
 	
-	echo 	"<p><b>Dog Park Name:</b><span itemprop='name'>".$park['name']."</span><br>".
+	echo 	"<p><b>Dog Park Name: </b><span itemprop='name'>".$park['name']."</span><br>".
 			"<span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>".			
 				"<b>Street:</b> <span itemprop='streetAddress'>".$park['street']."</span><br>".
 				"<b>Suburb:</b> <span itemprop='addressLocality'>".$park['suburb']."</span><br>".

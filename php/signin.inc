@@ -12,7 +12,6 @@ function signin(array $signin_data){
     $result = perform_sql_query($query, $parameters);
 
     if ($result->rowCount() > 0){
-        session_start();
         session_id();
         $_SESSION['isLoggedOn'] = true;
 

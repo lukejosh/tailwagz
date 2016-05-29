@@ -5,14 +5,13 @@ include "php/common.inc";
 include 'php/validate.inc';
 include "php/signin.inc";
 session_start();
-$form_data = array();
 
 if (isset($_POST['signin'])) {
 	$_POST = remove_scripts($_POST);
 	
 	$validated = true;
-	$validated = $validated && validateUsername($_POST, 'username');
-	$validated = $validated && validatePassword($_POST, 'password');
+	$validated = $validated && validate_username($_POST, 'username');
+	$validated = $validated && validate_password($_POST, 'password');
 	
 	if($validated){
 		signin($_POST);
