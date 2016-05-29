@@ -302,8 +302,19 @@
 	width: 100%;
 }
 
-#body form #rbuttons input , #body form #rbuttons label {
-	width: 100%;
+#body form #rbuttons {
+	Height: 50px;
+}
+
+#body form #rbuttons input {
+	width: 25%;
+}
+
+#body form #rbuttons label {
+	height: 50px;
+	margin: auto;
+	width: 25%;
+	background: #540B2C;
 }
 
 #body form .submit {

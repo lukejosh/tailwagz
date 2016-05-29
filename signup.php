@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <?php
+// Include all necessary php files
 include "php/common.inc";
 include 'php/validate.inc';
 include "php/signup.inc";
+
+// Start the users session
 session_start();
 
+// If the user has posted a signup form	
 if (isset($_POST['signup'])) {
+	// Remove all cross site scripting from the data
 	$_POST = remove_scripts($_POST);
 	
+	// Validate the data
 	$validated = true;
 	$validated = $validated && validate_username($_POST, 'username');
 	$validated = $validated && validate_name($_POST, 'firstname');
@@ -20,6 +26,7 @@ if (isset($_POST['signup'])) {
 	$validated = $validated && validate_password($_POST, 'password');
 	$validated = $validated && check_passwords_match($_POST , 'password' , 'confpassword');
 	
+	// If validated the data then signup
 	if($validated){
 		signup($_POST);
 	}
@@ -34,12 +41,17 @@ if (isset($_POST['signup'])) {
     <script type="text/javascript" src="js/javascript.js"></script>
 </head>
 <body>
-<?php include 'components/header.inc'; ?>
-<div id="body">
-    <p id="title">Sign Up</p>
-    <?php display_error_message();?>
-    <?php display_signin_form($_POST);?>
-</div>
-<?php include 'components/footer.inc'; ?>
+	<!-- Header -->
+	<?php include 'components/header.inc'; ?>
+	<!-- Body -->
+	<div id="body">
+		<p id="title">Sign Up</p>
+		<!-- If there is an error message then display it -->
+		<?php display_error_message();?>
+		<!-- display the form for signing in -->
+		<?php display_signin_form($_POST);?>
+	</div>
+	<!-- Footer -->
+	<?php include 'components/footer.inc'; ?>
 </body>
 </html>

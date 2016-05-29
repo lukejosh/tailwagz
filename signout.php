@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
 <?php
+// Include all necessary php files
 include "php/common.inc";
 include "php/signout.inc";
+
+// Start the users session
 session_start();
 
+// Sign the user out
 signout();
 ?>
 <head>
@@ -16,11 +20,14 @@ signout();
     <script type="text/javascript" src="js/javascript.js"></script>
 </head>
 <body>
-<?php include 'components/header.inc';?>
-<div id="body">
-    <p id="title">Sign Out</p>
-    <p class="error">Successfully Signed Out</p>
-</div>
-<?php include 'components/footer.inc'; ?>
+	<!-- Header -->
+	<?php include 'components/header.inc'; ?>
+	<!-- Body -->
+	<div id="body">
+		<p id="title">Sign Out</p>
+		<p class="error">Successfully Signed Out</p>
+	</div>
+	<!-- Footer -->
+	<?php include 'components/footer.inc'; ?>
 </body>
 </html>
