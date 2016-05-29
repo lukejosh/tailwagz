@@ -3,8 +3,15 @@
 <?php
 include "php/common.inc";
 include "php/results.inc";
+include "php/validate.inc";
+
 session_start();
 session_id();
+
+
+$_GET = remove_scripts($_GET);
+
+validate_all_search();
 
 $results_data = get_search_results()->fetchAll();
 ?>
