@@ -1,4 +1,8 @@
 <?php
+function get_base_url(){
+	return "http://{$_SERVER['HTTP_HOST']}/cab230-assignment1";
+}
+
 function get_sql_connector(){
     $pdo = new PDO('mysql:host=tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com;dbname=tailwagz', 'admin', 'masterpassword');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -22,7 +26,7 @@ function perform_sql_query($query, $parameters){
         return $result;
     } catch (PDOException $e) {
         $_SESSION['errorMessage'] = $result->queryString."<br><br>".json_encode($parameters)."<br><br>".$e->getMessage();
-        header("Location: http://{$_SERVER['HTTP_HOST']}/error.php");
+        header("Location: ".get_base_url()."/error.php");
         exit();
     }
 }
