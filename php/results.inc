@@ -76,10 +76,10 @@ function    get_search_results(){
                  $result = get_parks_by_category($value);
 				 break;
             }
+        }
 
-            else{
-                $result = get_all_parks(); //When distance is set, but nothing else is
-            }
+        if (!isset($result)){
+            $result = get_all_parks(); // nothing but distance is set
         }
 		
     }
