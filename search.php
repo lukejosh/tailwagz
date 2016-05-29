@@ -14,14 +14,29 @@ session_start();
     <script type="text/javascript" src="js/javascript.js"></script>
 
     <?php
-    $preset_distance = "1";
-    preset_suburb =
+    $preset_distance = "";
+    $preset_suburb = null;
+    $preset_rating = "";
+    $preset_category = "";
+    $preset_search = "";
     foreach($_GET as $field => $value){
         if($value != ""){
             switch($field){
                 case "distance":
                     $preset_distance = $value;
-
+                    break;
+                case "suburb":
+                    $preset_suburb = $value;
+                    break;
+                case "rating":
+                    $preset_rating = $value;
+                    break;
+                case "category":
+                    $preset_category = $value;
+                    break;
+                case "search":
+                    $preset_search = $value;
+                    break;
             }
         }
     }
@@ -36,16 +51,16 @@ session_start();
     <form action="results.php">
         <a class="submit" id="location" onclick="user_location_link();"><p>Search By Location</p></a>
         <select name="distance" id="distance" onchange="revert_other_searches('distance')">
-            <option value="1">< 1km</option>
-            <option value="5">< 5km</option>
-            <option value="10">< 10km</option>
-            <option value="20">< 20km</option>
-            <option value="50">< 50km</option>
+            <option value="1" <?php if($preset_distance == "1"){echo "selected";}?> >< 1km</option>
+            <option value="5" <?php if($preset_distance == "5"){echo "selected";}?>>< 5km</option>
+            <option value="10" <?php if($preset_distance == "10"){echo "selected";}?>>< 10km</option>
+            <option value="20" <?php if($preset_distance == "20"){echo "selected";}?>>< 20km</option>
+            <option value="50" <?php if($preset_distance == "50"){echo "selected";}?>>< 50km</option>
         </select>
         <p>or select one of the following</p>
         <select name="suburb" id="suburb" onchange="revert_other_searches('suburb')">
             <option value="">Select a suburb</option>
-            <?php add_suburb_options();?>
+            <?php add_suburb_options($preset_suburb);?>
         </select>
         <select name="rating" id="rating" onchange="revert_other_searches('rating')">
             <option value="">Select a minimum rating</option>

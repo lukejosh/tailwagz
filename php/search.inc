@@ -1,5 +1,5 @@
 <?php
-function add_suburb_options(){
+function add_suburb_options($preset){
     $query = 'SELECT DISTINCT suburb FROM parks ORDER BY suburb ASC';
     $parameters = null;
     $result = perform_sql_query($query, $parameters);
@@ -9,7 +9,12 @@ function add_suburb_options(){
     }
 
     foreach($result as $key => $row){
-        echo "<option value=\"".$row['suburb']."\">".$row['suburb']."</option>";
+        $selected = "";
+        if($preset == $row){
+            $selected == "selected";
+        }
+
+        echo "<option value=\"".$row['suburb'].$selected."\">".$row['suburb']."</option>";
     }
 }
 ?>
