@@ -21,11 +21,11 @@ session_start();
     <form action="results.php">
         <a class="submit" id="location" onclick="user_location_link();"><p>Search By Location</p></a>
         <select name="distance" id="distance" onchange="revert_other_searches('distance')">
-            <option value="1"><1km</option>
-            <option value="5"><5km</option>
-            <option value="10"><10km</option>
-            <option value="20"><20km</option>
-            <option value="50"><50km</option>
+            <option value="1">< 1km</option>
+            <option value="5">< 5km</option>
+            <option value="10">< 10km</option>
+            <option value="20">< 20km</option>
+            <option value="50">< 50km</option>
         </select>
         <p>or select one of the following</p>
         <select name="suburb" id="suburb" onchange="revert_other_searches('suburb')">

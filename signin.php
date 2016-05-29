@@ -2,12 +2,21 @@
 <html>
 <?php
 include "php/common.inc";
+include 'php/validate.inc';
 include "php/signin.inc";
 session_start();
+$form_data = array();
 
 if (isset($_POST['signin'])) {
-    signin($_POST);
-    // If login fails we need to add logic to refill forms
+	$_POST = remove_scripts($_POST);
+	
+	$validated = true;
+	$validated = $validated && validateUsername($_POST, 'username');
+	$validated = $validated && validatePassword($_POST, 'password');
+	
+	if($validated){
+		signin($_POST);
+	}
 }
 ?>
 <head>
@@ -21,13 +30,9 @@ if (isset($_POST['signin'])) {
 <body>
 <?php include 'components/header.inc'; ?>
 <div id="body">
-    <p id="title">Log In</p>
+    <p id="title">Sign In</p>
     <?php display_error_message();?>
-    <form id="signin" action="signin.php" method="post" >
-        <input type="text" name="username" id="username" placeholder="Username" required/>
-        <input type="password" name="password" id="password" placeholder="Password" required/>
-        <input type="submit" class="submit" name="signin" id="signin" value="Sign In"/>
-    </form>
+    <?php display_signin_form($_POST) ;?>
 </div>
 <?php include 'components/footer.inc'; ?>
 </body>

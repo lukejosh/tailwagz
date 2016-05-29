@@ -6,6 +6,7 @@ include "php/signup.inc";
 session_start();
 
 if (isset($_POST['signup'])) {
+	// Need to add validation of data here
     signup($_POST);
     // If login fails we need to add logic to refill forms
 }

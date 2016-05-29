@@ -23,6 +23,25 @@ function signin(array $signin_data){
         exit();
     }
 
-    $_SESSION['errorMessage'] = 'Failed to log on. Please check your email and password';
+    $_SESSION['errorMessage'] = 'Failed to log on. Please check your username and password';
+}
+
+function display_signin_form($form_data){
+	$username = "";
+	$password = "";
+	
+	if (isset($form_data['username'])) {
+		$username = $form_data['username'];
+	}
+	
+	if (isset($form_data['password'])) {
+		$password = $form_data['password'];
+	}
+	
+	echo "<form id='signin' action='signin.php' method='post'>
+			<input type='text' name='username' id='username' placeholder='Username' value='".$username."' required/>
+			<input type='password' name='password' id='password' placeholder='Password' value='".$password."' required/>
+			<input type='submit' class='submit' name='signin' id='signin' value='Sign In'/>
+		</form>";
 }
 ?>

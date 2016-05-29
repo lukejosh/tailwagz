@@ -42,7 +42,7 @@ function    get_search_results(){
         return get_all_parks();
     }
 	
-	if($_GET['distance'] == ""){
+	if(!isset($_GET['distance']) || $_GET['distance'] == ""){
 		$distance = 10;
 	} else {
 		$distance = htmlspecialchars($_GET['distance'], ENT_QUOTES, 'UTF-8');
