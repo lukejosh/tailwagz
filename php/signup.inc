@@ -8,8 +8,7 @@ function signup(array $data){
 
     if (is_username_existing($username)){
         $_SESSION['errorMessage'] = 'Username already exists';
-        header("Location: http://{$_SERVER['HTTP_HOST']}/signup.php");
-        exit();
+        return;
     }
 
     $parameters['username'] = $username;
@@ -44,5 +43,66 @@ function is_username_existing($username){
     }
 
     return false;
+}
+
+function display_signin_form($form_data){
+	$username = "";
+	$firstname = "";
+	$lastname = "";
+	$email = "";
+	$dob = "";
+	$mobile = "";
+	$gender = "";
+	$male = "checked";
+	$female = "";
+	
+	if (isset($form_data['username'])) {
+		$username = $form_data['username'];
+	}
+	
+	if (isset($form_data['firstname'])) {
+		$firstname = $form_data['firstname'];
+	}
+	
+	if (isset($form_data['lastname'])) {
+		$lastname = $form_data['lastname'];
+	}
+	
+	if (isset($form_data['email'])) {
+		$email = $form_data['email'];
+	}
+	
+	if (isset($form_data['dob'])) {
+		$dob = $form_data['dob'];
+	}
+	
+	if (isset($form_data['mobile'])) {
+		$mobile = $form_data['mobile'];
+	}
+	
+	if (isset($form_data['sex'])) {
+		if ($form_data['sex'] == "female"){
+			$male = "";
+			$female = "checked";
+		}
+	}
+	
+	echo "<form id='signup' action='signup.php' method='post' >
+			<input type='text' name='username' id='username' placeholder='Username' value='".$username."' required/>
+			<input type='text' name='firstname' id='firstname' placeholder='First Name' value='".$firstname."' required/>
+			<input type='text' name='lastname' id='lastname' placeholder='Last Name' value='".$lastname."' required/>
+			<input type='email' name='email' id='email' placeholder='E-Mail Address' value='".$email."' required/>
+			<input type='text' name='mobile' id='mobile' placeholder='Phone number' value='".$mobile."' required/>
+			<input type='password' name='password' id='password' placeholder='Password' required/>
+			<input type='password' name='confpassword' id='confpassword' placeholder='Confirm Password' onchange='validate_password();' required/>
+			<input type='date' class='date' name='dob' id='dob' max='2019-12-31' value='".$dob."' required/>
+			<div id='rbuttons'>
+				<input type='radio' name='sex' value='male' ".$male."/>
+				<label >Male</label>
+				<input type='radio' name='sex' value='female' ".$female."/>
+				<label >Female</label>
+			</div>
+			<input type='submit' class='submit' name='signup' id='signup' value='Sign Up'/>
+		</form>";
 }
 ?>

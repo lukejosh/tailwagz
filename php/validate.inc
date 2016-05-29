@@ -41,6 +41,15 @@
 		return true;
 	}
 	
+	function check_passwords_match($form_data , $password1 , $password2){
+		
+		if ($form_data[$password1] == $form_data[$password1]){
+			return true;
+		}
+		$_SESSION['errorMessage'] = 'Passwords do not match';
+		return false;	
+	}
+	
 	function validate_name(&$form_data, $field_name)
 	{
 		$pattern = "/^[a-zA-Z_ ]+/";
@@ -71,13 +80,13 @@
 	
 	function validate_date(&$form_data, $field_name)
 	{
-		$pattern = '/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/';
+		$pattern = '/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/';
 		if (!isset($form_data[$field_name])|| empty($form_data[$field_name])){
 			$_SESSION['errorMessage'] = 'Date of Birth is required';
 			return false;
 		}
 		else if (!preg_match($pattern, $form_data[$field_name])){
-			$_SESSION['errorMessage'] = 'Date of Birth format is incorrect';
+			$_SESSION['errorMessage'] = $form_data[$field_name].' Date of Birth format is incorrect';
 			return false;
 		}
 		return true;
@@ -97,9 +106,9 @@
 		return true;
 	}
 	
-	function validate_number(&$form_data, $field_name)
+	function validate_gender(&$form_data, $field_name)
 	{
-		$pattern = '/^[0-9]{10}$/';
+		$pattern = '/^(female|male)$/';
 		if (!isset($form_data[$field_name])|| empty($form_data[$field_name])){
 			$_SESSION['errorMessage'] = 'Gender is required';
 			return false;

@@ -14,17 +14,14 @@ function templatemo_map() {
             }
 
 function validate_password() {
-    var password = document.getElementById("password")
-    var confPass = document.getElementById("confpassword")
+    var password = document.getElementById("password");
+    var confPass = document.getElementById("confpassword");
 
     if (password.value != confPass.value) {
-        confPass.setCustomValidity("Passwords Don't Match");
-    }
-    else if (password.value.match(/\d+/g) == null) {
-        //confPass.setCustomValidity("Passwords must contain a digit")
+        confPass.setCustomValidity(""+password.value + confPass.value);
     }
     else {
-        confPass.setCustomValidity('')
+        confPass.setCustomValidity('');
     }
 }
 
