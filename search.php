@@ -12,6 +12,21 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
     <script type="text/javascript" src="js/javascript.js"></script>
+
+    <?php
+    $preset_distance = "1";
+    preset_suburb =
+    foreach($_GET as $field => $value){
+        if($value != ""){
+            switch($field){
+                case "distance":
+                    $preset_distance = $value;
+
+            }
+        }
+    }
+    ?>
+
 </head>
 <body>
 <?php include 'components/header.inc'; ?>
@@ -51,6 +66,12 @@ session_start();
         <input type="text" name="search" id="search" value="" placeholder="Keyword" onchange="revert_other_searches('search')">
         <input type="submit" class="submit" id="search_btn" value="Search">
     </form>
+
+    <?php
+    if (isset($_GET)){
+
+    }
+    ?>
 </div>
 <?php include 'components/footer.inc'; ?>
 </body>
