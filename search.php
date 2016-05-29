@@ -4,16 +4,7 @@
 include "php/common.inc";
 include "php/search.inc";
 session_start();
-?>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Park Reviews</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
-    <script type="text/javascript" src="js/javascript.js"></script>
 
-    <?php
     $preset_distance = "";
     $preset_suburb = null;
     $preset_rating = "";
@@ -40,8 +31,14 @@ session_start();
             }
         }
     }
-    ?>
-
+?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Park Reviews</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
+    <script type="text/javascript" src="js/javascript.js"></script>
 </head>
 <body>
 <?php include 'components/header.inc'; ?>
@@ -64,19 +61,20 @@ session_start();
         </select>
         <select name="rating" id="rating" onchange="revert_other_searches('rating')">
             <option value="">Select a minimum rating</option>
-            <option value="1">> 1 Star</option>
-            <option value="2">> 2 Stars</option>
-            <option value="3">> 3 Stars</option>
-            <option value="4">> 4 Stars</option>
+            <option value="1" <?php if($preset_rating == "1"){echo "selected";}?>>> 1 Star</option>
+            <option value="2" <?php if($preset_rating == "2"){echo "selected";}?>>> 2 Stars</option>
+            <option value="3" <?php if($preset_rating == "3"){echo "selected";}?>>> 3 Stars</option>
+            <option value="4" <?php if($preset_rating == "4"){echo "selected";}?>>> 4 Stars</option>
         </select>
+
         <select name="category" id="category" onchange="revert_other_searches('category')">
-            <option value="">Select a category</option>
-            <option value="beach">Beach</option>
-            <option value="friendly">Friendly</option>
-            <option value="training">Training</option>
-            <option value="quiet">Quiet</option>
-            <option value="busy">Busy</option>
-            <option value="big">Big</option>
+            <option value="">>Select a category</option>
+            <option value="beach" <?php if($preset_category == "beach"){echo "selected";}?>>Beach</option>
+            <option value="friendly" <?php if($preset_category == "friendly"){echo "selected";}?>>Friendly</option>
+            <option value="training" <?php if($preset_category == "training"){echo "selected";}?>>Training</option>
+            <option value="quiet" <?php if($preset_category == "quiet"){echo "selected";}?>>Quiet</option>
+            <option value="busy" <?php if($preset_category == "busy"){echo "selected";}?>>Busy</option>
+            <option value="big" <?php if($preset_category == "big"){echo "selected";}?>>Big</option>
         </select>
         <input type="text" name="search" id="search" value="" placeholder="Keyword" onchange="revert_other_searches('search')">
         <input type="submit" class="submit" id="search_btn" value="Search">

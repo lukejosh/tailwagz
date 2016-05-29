@@ -9,12 +9,18 @@ function add_suburb_options($preset){
     }
 
     foreach($result as $key => $row){
-        $selected = "";
-        if($preset == $row){
-            $selected == "selected";
+        $append_str = "";
+        if ($row['suburb'] == $preset){
+            $append_str = " selected";
         }
 
-        echo "<option value=\"".$row['suburb'].$selected."\">".$row['suburb']."</option>";
+        echo "<option value=\"".
+            $row['suburb'].
+            "\"".
+            $append_str. //If suburb was previously selected, select it again
+            ">".
+            $row['suburb'].
+            "</option>";
     }
 }
 ?>
