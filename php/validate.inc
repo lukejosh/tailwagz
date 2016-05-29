@@ -133,43 +133,44 @@
 		return true;
 	}
 
-function validate_all_search(){
-	if(isset($_GET['search'])){
-		$validated = validate_search_term_string($_GET, 'search');
-		if(!$validated){
-			header("Location: ".get_base_url()."/search.php");
-			exit();
+	function validate_all_search(){
+		if(isset($_GET['search'])){
+			$validated = validate_search_term_string($_GET, 'search');
+			if(!$validated){
+				header("Location: ".get_base_url()."/search.php");
+				exit();
+			}
 		}
-	}
 
-	if (isset($_GET['suburb'])){
-		$validated = validate_search_term_string($_GET, 'suburb');
-		if(!$validated){
-			header("Location: ".get_base_url()."/search.php");
-			exit();
+		if (isset($_GET['suburb'])){
+			$validated = validate_search_term_string($_GET, 'suburb');
+			if(!$validated){
+				header("Location: ".get_base_url()."/search.php");
+				exit();
+			}
 		}
-	}
 
-	if (isset($_GET['category'])){
-		$validated = validate_search_term_string($_GET, 'category');
-		if(!$validated){
-			header("Location: ".get_base_url()."/search.php");
-			exit();
+		if (isset($_GET['category'])){
+			$validated = validate_search_term_string($_GET, 'category');
+			if(!$validated){
+				header("Location: ".get_base_url()."/search.php");
+				exit();
+			}
 		}
-	}
 
-	if (isset($_GET['distance'])){
-		$validated = validate_search_term_integer($_GET, 'distance');
-		if(!$validated){
-			header("Location: ".get_base_url()."/search.php");
-			exit();
+		if (isset($_GET['distance'])){
+			$validated = validate_search_term_integer($_GET, 'distance');
+			if(!$validated){
+				header("Location: ".get_base_url()."/search.php");
+				exit();
+			}
 		}
-	}
-	if (isset($_GET['rating'])){
-		$validated = validate_search_term_integer($_GET, 'rating');
-		if(!$validated){
-			header("Location: ".get_base_url()."/search.php");
-			exit();
+		if (isset($_GET['rating'])){
+			$validated = validate_search_term_integer($_GET, 'rating');
+			if(!$validated){
+				header("Location: ".get_base_url()."/search.php");
+				exit();
+			}
 		}
 	}
 ?>

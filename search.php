@@ -3,8 +3,9 @@
 <?php
 include "php/common.inc";
 include "php/search.inc";
+include "php/validate.inc";
 session_start();
-
+validate_all_search($_GET);
 $distance = "1";
 foreach($_GET as $field => $value){
 	if($value != ""){
@@ -76,7 +77,7 @@ foreach($_GET as $field => $value){
         </select>
 
         <select name="category" id="category" onchange="revert_other_searches('category')">
-            <option value="">>Select a category</option>
+            <option value="">Select a category</option>
             <option value="beach" <?php if($preset_category == "beach"){echo "selected";}?>>Beach</option>
             <option value="friendly" <?php if($preset_category == "friendly"){echo "selected";}?>>Friendly</option>
             <option value="training" <?php if($preset_category == "training"){echo "selected";}?>>Training</option>
