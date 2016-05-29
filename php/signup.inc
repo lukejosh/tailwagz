@@ -27,7 +27,7 @@ function signup(array $data){
     session_id();
     $_SESSION['isLoggedOn'] = true;
     $_SESSION['username'] = $data['username'];
-    header("Location: http://{$_SERVER['HTTP_HOST']}/index.php");
+    header("Location: ".get_base_url()."/index.php");
     exit();
 }
 
