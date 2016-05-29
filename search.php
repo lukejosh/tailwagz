@@ -4,6 +4,15 @@
 include "php/common.inc";
 include "php/search.inc";
 session_start();
+
+$distance = "1";
+foreach($_GET as $field => $value){
+	if($value != ""){
+		if ($field == "distance"){
+				$preset_distance = $value;
+		}
+	}
+}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -12,21 +21,6 @@ session_start();
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
     <script type="text/javascript" src="js/javascript.js"></script>
-
-    <?php
-    $preset_distance = "1";
-    preset_suburb =
-    foreach($_GET as $field => $value){
-        if($value != ""){
-            switch($field){
-                case "distance":
-                    $preset_distance = $value;
-
-            }
-        }
-    }
-    ?>
-
 </head>
 <body>
 <?php include 'components/header.inc'; ?>

@@ -2,7 +2,7 @@ import MySQLdb
 from csv import DictReader
 import ipdb
 
-conn = MySQLdb.connect(host="tailwagz.cfvove2ohkes.ap-southeast-2.rds.amazonaws.com", user="admin", passwd="masterpassword", db="tailwagz")
+conn = MySQLdb.connect(host="fastapps04.qut.edu.au", user="n9438726", passwd="password1", db="n9438726")
 x = conn.cursor()
 
 csvfile = open('dog-parks.csv')

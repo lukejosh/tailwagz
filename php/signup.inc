@@ -8,7 +8,7 @@ function signup(array $data){
 
     if (is_username_existing($username)){
         $_SESSION['errorMessage'] = 'Username already exists';
-        header("Location: http://{$_SERVER['HTTP_HOST']}/cab230-assignment1/signup.php");
+        header("Location: http://{$_SERVER['HTTP_HOST']}/signup.php");
         exit();
     }
 
@@ -27,7 +27,7 @@ function signup(array $data){
     session_id();
     $_SESSION['isLoggedOn'] = true;
     $_SESSION['username'] = $data['username'];
-    header("Location: http://{$_SERVER['HTTP_HOST']}/cab230-assignment1/index.php");
+    header("Location: http://{$_SERVER['HTTP_HOST']}/index.php");
     exit();
 }
 

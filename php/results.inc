@@ -86,7 +86,7 @@ function    get_search_results(){
 
 	if($result->rowCount() < 1){
 		$_SESSION['errorMessage'] = 'No parks matched your search';
-        header("Location: http://{$_SERVER['HTTP_HOST']}/cab230-assignment1/search.php?".$field."=".$value);
+        header("Location: http://{$_SERVER['HTTP_HOST']}/search.php?".$field."=".$value);
         exit();
 	}
 	

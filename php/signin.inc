@@ -19,7 +19,7 @@ function signin(array $signin_data){
         $user = $result -> fetch();
         $_SESSION['username'] = htmlspecialchars($user['username'], ENT_QUOTES, 'UTF-8');
 
-        header("Location: http://{$_SERVER['HTTP_HOST']}/cab230-assignment1/index.php");
+        header("Location: http://{$_SERVER['HTTP_HOST']}/index.php");
         exit();
     }
 
