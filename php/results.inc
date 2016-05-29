@@ -38,7 +38,6 @@ function    get_search_results(){
 
     if(empty($_GET)){
         // Checks that get exists and has values
-        //echo "<script> alert(\"RETURNING ALL\");</script>";
         return get_all_parks();
     }
 	
@@ -76,6 +75,10 @@ function    get_search_results(){
             else if ($field == 'category'){
                  $result = get_parks_by_category($value);
 				 break;
+            }
+
+            else{
+                $result = get_all_parks(); //When distance is set, but nothing else is
             }
         }
 		
