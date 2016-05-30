@@ -25,8 +25,8 @@ $reviews_data = get_reviews_by_id($_GET['id']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Park Reviews</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="js/javascript.js">
-		// These variables are global variables used for the map
+<!--	These variables are global variables used for the map-->
+	<script type="text/javascript">
         var map;
         var bounds;
     </script>
