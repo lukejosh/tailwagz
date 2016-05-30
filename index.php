@@ -39,27 +39,27 @@ session_start();
 		<div id="categories">
 			<h1>Popular Categories</h1>
 			<a href="results.php?category=beach">
-				<img src="images/dog-beach.jpg" alt="">
+				<img src="images/dog-beach.jpg" alt="Dog on beach">
 				<p>Beach</p>
 			</a>
 			<a href="results.php?category=friendly">
-				<img src="images/dog-friendly.jpg" alt="">
+				<img src="images/dog-friendly.jpg" alt="Dogs playing together">
 				<p>Friendly</p>
 			</a>
 			<a href="results.php?category=training">
-				<img src="images/dog-training.jpg" alt="">
+				<img src="images/dog-training.jpg" alt="Dog playing fetch">
 				<p>Training</p>
 			</a>
 			<a href="results.php?category=quiet">
-				<img src="images/dog-quiet.jpg" alt="">
+				<img src="images/dog-quiet.jpg" alt="Empty dog park">
 				<p>Quiet</p>
 			</a>
 			<a href="results.php?category=busy">
-				<img src="images/dog-busy.jpg" alt="">
+				<img src="images/dog-busy.jpg" alt="Lots of dogs">
 				<p>Busy</p>
 			</a>
 			<a href="results.php?category=big">
-				<img src="images/dog-big.jpg" alt="">
+				<img src="images/dog-big.jpg" alt="Large dog park">
 				<p>Big</p>
 			</a>
 		</div>
