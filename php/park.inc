@@ -35,25 +35,25 @@
 		$park = $search_data[0];
 		
 		// echo the parks data including mirco-data and meta-data
-		echo 	"<p><b>Dog Park Name: </b><span itemprop='name'>".$park['name']."</span><br>".
-				"<span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>".			
-					"<b>Street:</b> <span itemprop='streetAddress'>".$park['street']."</span><br>".
-					"<b>Suburb:</b> <span itemprop='addressLocality'>".$park['suburb']."</span><br>".
-				"</span>".
-				"<span itemprop='aggregateRating' itemscope itemtype='http://schema.org/AggregateRating'>".
-					"<b>No. Reviews:</b> <span itemprop='ratingValue'>".$park['rating']."</span><br>".
-					"<b>Rating:</b> <span itemprop='reviewCount'>".$park['rating']."</span><br>".
-				"</span>".
-				"<b>Tags:</b> ".$park['category']."<br>".
-				"<div itemprop='geo' itemscope itemtype='http://schema.org/GeoCoordinates'>".
-					"<meta itemprop='latitude' content='40.75' />".
-					"<meta itemprop='longitude' content='73.98' />".
-				"</div>";
+		echo 	"<p><b>Dog Park Name: </b><span itemprop='name'>".$park['name']."</span><br>
+				<span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>			
+					<b>Street:</b> <span itemprop='streetAddress'>".$park['street']."</span><br>
+					<b>Suburb:</b> <span itemprop='addressLocality'>".$park['suburb']."</span><br>
+				</span>
+				<span itemprop='aggregateRating' itemscope itemtype='http://schema.org/AggregateRating'>
+					<b>No. Reviews:</b> <span itemprop='ratingValue'>".$park['rating']."</span><br>
+					<b>Rating:</b> <span itemprop='reviewCount'>".$park['rating']."</span><br>
+				</span>
+				<b>Tags:</b> ".$park['category']."<br>
+				<div itemprop='geo' itemscope itemtype='http://schema.org/GeoCoordinates'>
+					<meta itemprop='latitude' content='40.75' />
+					<meta itemprop='longitude' content='73.98' />
+				</div>";
 		
-		echo 	"<script> var lat = ".$park['latitude'].";".
-					"var long = ".$park['longitude'].";".
-					"var name = \"".$park['name']."\";".
-				"</script>";
+		echo 	"<script> var lat = ".$park['latitude'].";
+					var long = ".$park['longitude'].";
+					var name = \"".$park['name']."\";
+				</script>";
 	}
 
 	// Function:  display_reviews($review_data)
@@ -74,18 +74,18 @@
 				$datePublished = date("y-m-d", strtotime($review['dateCreated']));
 				
 				// Echo out the review including mirco-data and meta-data
-				echo 	"<div itemprop='review' itemscope itemtype='http://schema.org/Review'>".
-							"<p>".
-								"<b><span id='reviewRating' itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'>".
-									"<span itemprop='ratingValue'>".$review['rating']."</span> out of ".
-									"<span itemprop='bestRating'>5</span> stars".
-								"</span></b> - ".
-								"\"<i><span itemprop='name'>".$review['message']."</span></i>\" - ".						
-								"<b><span itemprop='author'>".$review['username']."</span></b> ".
-								"on ".$dateText."<br>".
-								"<meta itemprop='datePublished' content=".$datePublished.">".
-							"</p>".
-						"</div>";
+				echo 	"<div itemprop='review' itemscope itemtype='http://schema.org/Review'>
+							<p>
+								<b><span id='reviewRating' itemprop='reviewRating' itemscope itemtype='http://schema.org/Rating'>
+									<span itemprop='ratingValue'>".$review['rating']."</span> out of 
+									<span itemprop='bestRating'>5</span> stars
+								</span></b> - 
+								\"<i><span itemprop='name'>".$review['message']."</span></i>\" - 						
+								<b><span itemprop='author'>".$review['username']."</span></b> 
+								on ".$dateText."<br>
+								<meta itemprop='datePublished' content=".$datePublished.">
+							</p>
+						</div>";
 			}
 		}
 	}

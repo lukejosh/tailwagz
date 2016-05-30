@@ -114,20 +114,29 @@
 		
 		// Echs out the form with the previously filled out parameters added to the form
 		echo "<form id='signup' action='signup.php' method='post' >
+				<span>Username</span>
 				<input type='text' name='username' id='username' placeholder='Username' value='".$username."' required/>
+				<span>First Name</span>
 				<input type='text' name='firstname' id='firstname' placeholder='First Name' value='".$firstname."' required/>
+				<span>Last Name</span>
 				<input type='text' name='lastname' id='lastname' placeholder='Last Name' value='".$lastname."' required/>
+				<span>Email Address</span>
 				<input type='email' name='email' id='email' placeholder='E-Mail Address' value='".$email."' required/>
+				<span>Mobile Number</span>
 				<input type='text' name='mobile' id='mobile' placeholder='Phone number' value='".$mobile."' required/>
-				<input type='password' name='password' id='password' placeholder='Password' required/>
-				<input type='password' name='confpassword' id='confpassword' placeholder='Confirm Password' onchange='validate_password();' required/>
-				<input type='date' class='date' name='dob' id='dob' max='2019-12-31' value='".$dob."' required/>
+				<span>Gender</span>
 				<div id='rbuttons'>
 					<input type='radio' name='sex' value='male' ".$male."/>
-					<label >Male</label>
+					<span class='textlabel'>Male</span>
 					<input type='radio' name='sex' value='female' ".$female."/>
-					<label >Female</label>
+					<span class='textlabel'>Female</span>
 				</div>
+				<span>Date of birth</span>
+				<input type='date' class='date' name='dob' id='dob' max='2019-12-31' value='".$dob."' required/>
+				<span>Password</span>
+				<input type='password' name='password' id='password' placeholder='Password' required/>
+				<span>Confirm Password</span>
+				<input type='password' name='confpassword' id='confpassword' placeholder='Confirm Password' onchange='validate_password();' required/>
 				<input type='submit' class='submit' name='signup' id='signup' value='Sign Up'/>
 			</form>";
 	}

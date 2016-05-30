@@ -58,7 +58,9 @@ $reviews_data = get_reviews_by_id($_GET['id']);
 				<div class="form">
 					<form id="submit_review" action="park.php?id=<?php echo $_GET['id']; ?>" method="post" >
 						<input type="hidden" name="parkID" id="parkID" value="<?php echo $_GET['id']; ?>">
+						<span>Review message</span>
 						<input type="text" name="message" id="message" placeholder="Review Message" required/>
+						<span>Review rating</span>
 						<select name="rating" id="rating">
 							<option value="">Select a rating</option>
 							<option value="1">1 Star</option>
@@ -67,6 +69,7 @@ $reviews_data = get_reviews_by_id($_GET['id']);
 							<option value="4">4 Stars</option>
 							<option value="5">5 Stars</option>
 						</select>
+						<span>Suitable park category</span>
 						<select name="category" id="category">
 							<option value="">Select a suitable category</option>
 							<option value="Beach">Beach</option>

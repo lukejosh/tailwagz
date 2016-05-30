@@ -5,6 +5,7 @@
 include "php/common.inc";
 include "php/results.inc";
 include "php/validate.inc";
+include "php/search.inc";
 
 // Start the users session
 session_start();
