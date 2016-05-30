@@ -17,7 +17,10 @@ $_GET = remove_scripts($_GET);
 validate_all_search();
 
 // Get the results for the search
-$results_data = get_search_results()->fetchAll();
+$results_data = get_search_results();
+if (!is_array($results_data)){
+    $results_data = $results_data -> fetchAll();
+}
 ?>
 <head>
     <meta charset="UTF-8">

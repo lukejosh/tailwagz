@@ -8,14 +8,39 @@
 		return perform_sql_query($query, null);
 	}
 
+	// Function: haversine($lat1, $lon1, $lat2, $lon2)
+	// Description: implements the haversine equation to determine the distance between two points on the globe
+	// Input: Two lat long values
+	// Output: The distance, in km, between the two points
+	function haversine($lat1, $lon1, $lat2, $lon2){
+		$lat1 = $lat1 * pi() / 180;
+		$lon1 = $lon1 * pi() / 180;
+		$lat2 = $lat2 * pi() / 180;
+		$lon2 = $lon2 * pi() / 180;
+
+		$q1 = cos($lon1 - $lon2);
+		$q2 = cos($lat1 - $lat2);
+		$q3 = cos($lat1 + $lat2);
+
+		$rads = acos(0.5 * ((1.0 + $q1) * $q2 - (1.0 - $q1) * $q3));
+
+		$distance = (3963.346 * $rads) * 1.60934;
+		return $distance;
+	}
+
 	// Function:  get_parks_by_location($lat, $long, $distance)
 	// Description: a function to get all parks by location
 	// Input: users latitude and longitude as well as the maximum distance
 	// Output: all parks within the maximum distance
 	function get_parks_by_location($lat, $long, $distance){
-		$query = "SELECT * FROM parks WHERE haversine(latitude, longitude, ".$lat.", ".$long.") < ".$distance;
-
-		return perform_sql_query($query, null);
+		$all_parks = get_all_parks()->fetchAll();
+		$matching_parks = array();
+		foreach ($all_parks as  $park){
+			if(haversine(floatval($park['latitude']), floatval($park['longitude']), $lat, $long) < $distance){
+				$matching_parks[] = $park;
+			}
+		}
+		return $matching_parks;
 	}
 
 	// Function:  get_parks_by_rating($min)
@@ -138,7 +163,7 @@
 		}
 
 		// If any of the above searches return no results
-		if($result->rowCount() < 1){
+		if((is_array($result) & count($result) < 1) || (!is_array($result) && $result->rowCount() < 1)){
 			// then set an error message and return to the search page
 			$_SESSION['errorMessage'] = 'No parks matched your search';
 			header("Location: ".get_base_url()."/search.php?".$field."=".$value);
