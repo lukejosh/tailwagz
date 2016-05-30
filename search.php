@@ -59,9 +59,9 @@ foreach($_GET as $field => $value){
 		<p id="title">Search</p>
 		<!-- if there is an error message, display it -->
 		<?php display_error_message();?> 
-		<form action="results.php">
+		<form action="search.php">
 			<!-- Search by location button and distance option section -->
-			<a class="submit" id="location" onclick="user_location_link();"><p>Search By Location</p></a>
+			<p>Search by location</p>
 			<select name="distance" id="distance" onchange="revert_other_searches('distance')">
 				<!-- For each option if value was previously selected then select it again -->
 				<option value="1" <?php if($preset_distance == "1"){echo "selected";}?> >< 1km</option>
@@ -70,6 +70,7 @@ foreach($_GET as $field => $value){
 				<option value="20" <?php if($preset_distance == "20"){echo "selected";}?>>< 20km</option>
 				<option value="50" <?php if($preset_distance == "50"){echo "selected";}?>>< 50km</option>
 			</select>
+			<a  id="location" onclick="user_location_link();"><span>Search By Location</span></a>
 			<!-- Search by suburb, rating, category and keyword section -->
 			<p>or select one of the following</p>
 			<select name="suburb" id="suburb" onchange="revert_other_searches('suburb')">

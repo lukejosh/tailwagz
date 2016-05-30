@@ -272,16 +272,14 @@
 #body form {
   margin: 0 auto;
   max-width: 450px;
-  
 }
 
-#body form #location{
-	text-align: center;
-	text-decoration: none;
-	font-size: 18px;
-	min-height: 50px;
-	display: inline-block;
-	border: 2px solid #540B2C;
+#body form #rbuttons {
+	Height: 50px;
+}
+
+#body form p {
+
 }
 
 #body form input, #body form div, #body form select{
@@ -304,23 +302,28 @@
 
 #body form #rbuttons {
 	Height: 50px;
+	display:inline-block;
+	text-align: center;
 }
 
 #body form #rbuttons input {
-	width: 25%;
+	vertical-align:top;
+	width: 20px;
+	margin: 0 0 0 10px;
 }
 
-#body form #rbuttons label {
-	height: 50px;
-	margin: auto;
-	width: 25%;
-	background: #540B2C;
+#body form #rbuttons span {
+	vertical-align:top;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 50px;
+	width:100px;
+	margin: 0 10px 0 0;
 }
 
 #body form .submit {
-	width: 100%;
-	min-height: 50px;
+	width: 101%;
 	background: #540B2C;
+	border: 2px solid #540B2C;
 	color: #fff;
 	font-size: 18px;
 	text-align: center;
@@ -329,6 +332,30 @@
 #body form .submit:hover {
   background: #fff;
   color: #540B2C;
+}
+
+#body form #location{
+	display: inline-block;
+	width: 99%;
+	height: 50px;
+	background: #540B2C;
+	border: 2px solid #540B2C;
+	margin: 10px 0 10px 0;
+	color: #fff;
+	font-size: 18px;
+	text-align: center;
+}
+
+#body form #location:hover{
+	background: #fff;
+	color: #540B2C;
+}
+
+#body form #location span {
+	font-family: Arial, Helvetica, sans-serif;
+	height:50px;
+	line-height:50px;
+	width:100%;
 }
 
 
