@@ -9,9 +9,6 @@ include "php/validate.inc";
 // Start the users session
 session_start();
 
-// Validate the search by validating all fields of the GET request
-validate_all_search($_GET);
-
 // Set all pre-set search field to empty
 $preset_distance = "";
 $preset_suburb = null;
@@ -19,27 +16,41 @@ $preset_rating = "";
 $preset_category = "";
 $preset_search = "";
 
-// Loop through each search field in the GET request
-foreach($_GET as $field => $value){
-	// If the field is not empty then set the corresponding pre-set variable to the field value
-	if($value != ""){
-		switch($field){
-			case "distance":
-				$preset_distance = $value;
-				break;
-			case "suburb":
-				$preset_suburb = $value;
-				break;
-			case "rating":
-				$preset_rating = $value;
-				break;
-			case "category":
-				$preset_category = $value;
-				break;
-			case "search":
-				$preset_search = $value;
-				break;
+if (!empty($_GET)) {
+// Validate the search by validating all fields of the GET request
+	validate_all_search();
+
+	if (isset($_SESSION['errorMessage'])) { //Error in the previous search, fill out old values
+		// Loop through each search field in the GET request
+		foreach ($_GET as $field => $value) {
+			// If the field is not empty then set the corresponding pre-set variable to the field value
+			if ($value != "") {
+				switch ($field) {
+					case "distance":
+						$preset_distance = $value;
+						break;
+					case "suburb":
+						$preset_suburb = $value;
+						break;
+					case "rating":
+						$preset_rating = $value;
+						break;
+					case "category":
+						$preset_category = $value;
+						break;
+					case "search":
+						$preset_search = $value;
+						break;
+				}
+			}
 		}
+	} else { // Send results to the results page
+		$get_string = "?";
+		foreach ($_GET as $field => $value) {
+			$get_string = $get_string . $field . "=" . $value . "&";
+		}
+
+		header("Location: " . get_base_url() . "/results.php" . $get_string);
 	}
 }
 ?>
@@ -59,7 +70,7 @@ foreach($_GET as $field => $value){
 		<p id="title">Search</p>
 		<!-- if there is an error message, display it -->
 		<?php display_error_message();?> 
-		<form action="results.php">
+		<form action="search.php">
 			<!-- Search by location button and distance option section -->
 			<a class="submit" id="location" onclick="user_location_link();"><p>Search By Location</p></a>
 			<select name="distance" id="distance" onchange="revert_other_searches('distance')">
