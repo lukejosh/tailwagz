@@ -248,6 +248,7 @@ elements*/
 	position: relative;
 	margin-top: 35px;
 	min-width: 450px;
+	overflow: hidden;
 }
 
 /* This sets properties for the image on the homepage */
