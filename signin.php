@@ -17,7 +17,6 @@ if (isset($_POST['signin'])) {
 	// Validate the data
 	$validated = true;
 	$validated = $validated && validate_username($_POST, 'username');
-	$validated = $validated && validate_password($_POST, 'password');
 	
 	// If validated the data then signin
 	if($validated){

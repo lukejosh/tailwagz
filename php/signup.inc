@@ -31,7 +31,6 @@
 		$result = perform_sql_query($query, $parameters);
 
 		// sign the user in
-		session_start();
 		session_id();
 		$_SESSION['isLoggedOn'] = true;
 		$_SESSION['username'] = $data['username'];
@@ -131,7 +130,7 @@
 					<input type='radio' name='sex' value='female' ".$female."/>
 					<span class='textlabel'>Female</span>
 				</div>
-				<span>Date of birth</span>
+				<span>Date of birth (yyyy-mm-dd)</span>
 				<input type='date' class='date' name='dob' id='dob' max='2019-12-31' value='".$dob."' required/>
 				<span>Password</span>
 				<input type='password' name='password' id='password' placeholder='Password' required/>

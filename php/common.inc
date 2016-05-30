@@ -5,7 +5,7 @@
 	// Input: none
 	// Output: Base url of website
 	function get_base_url(){
-		return "http://{$_SERVER['HTTP_HOST']}/cab230-assignment1";
+		return "http://{$_SERVER['HTTP_HOST']}//n9438726";
 	}
 
 	// Function: get_sql_connector()

@@ -21,7 +21,7 @@
 	// also provides a useful error message if false.
 	function validate_username(&$form_data, $field_name)
 	{
-		$pattern = "/^[a-zA-Z0-9]\w+/";
+		$pattern = "/^[a-zA-Z0-9]+$/";
 		
 		if (!isset($form_data[$field_name])|| empty($form_data[$field_name])){
 			$_SESSION['errorMessage'] = 'Username is required';
@@ -63,7 +63,7 @@
 	// also provides a useful error message if false.
 	function validate_name(&$form_data, $field_name)
 	{
-		$pattern = "/^[a-zA-Z_ ]+/";
+		$pattern = "/^[a-zA-Z_ ]+$/";
 		
 		if (!isset($form_data[$field_name])|| empty($form_data[$field_name])){
 			$_SESSION['errorMessage'] = $field_name.' is required';
@@ -111,7 +111,8 @@
 			return false;
 		}
 		else if (!preg_match($pattern, $form_data[$field_name])){
-			$_SESSION['errorMessage'] = $form_data[$field_name].' Date of Birth format is incorrect';
+			$_SESSION['errorMessage'] = $form_data[$field_name].'<br>Date of Birth format is incorrect<br>'.
+																'Expected format is yyyy-mm-dd';
 			return false;
 		}
 		return true;
