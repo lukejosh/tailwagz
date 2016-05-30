@@ -1,4 +1,9 @@
-/*======================HEADER=================*/
+/*=============================================*/
+/*====================Header===================*/
+/*=============================================*/
+
+/* This sets properties of the header and parent properties of the child 
+elements*/
 #header {
 	font-family: "Arial Black", Gadget, sans-serif;
 	min-width: 450px;
@@ -7,13 +12,17 @@
 	text-align: center;
 }
 
+/* The authBanner is the banner across the very top of the header
+   which has buttons for the user to sign in and sign up if not signed 
+   in or sign out if the user is signed in also displays the signed in 
+   user's username*/
 #header #authBanner{
 	font-family: "Arial", Gadget, sans-serif;
 	font-size: 18px;	
 	float: right;
 	margin: 5px auto 5px auto;
 }
-
+/* Creates a button looking element out of anchors in the header */
 #header #authBanner > a {
 	min-height: 50px;
 	padding: 5px;
@@ -22,43 +31,48 @@
 	background: #540B2C;
 	border: 1px solid #540B2C;
 } 
-
+/* Changes color of the anchor elements in the header when hovered over */
 #header #authBanner > a:hover {
   background: #fff;
   color: #540B2C;
 }
 
+/* Sets the properties for all paragraphs in the header */
 #authBanner > p {
 	margin: 0 5px 0 5px;
 	display: inline-block;
-	
 	color: #540B2C;
 	background: #fff;
 }
 
+/* Sets the properties of the image div in the header */
 #header #imageBanner {
   display: block;
   margin: 0 auto;
   width: 400px;
 }
 
+/* Sets the properties of the image in the header */
 #header #imageBanner img {
   width: 100%;
   height: auto;
 }
 
+/* Sets the properties of the navigational div in the header */
 #header #navigationBanner {
   min-width: 450px;
   margin: 0 auto 0 auto;
   padding: 50px 0 0 0;
 }
 
+/* Sets the properties of the list in the navigational div in the header */
 #header #navigationBanner li {
   display: inline-block;
   list-style: none;
   margin: 0 15px 0 15px;
 }
 
+/* Sets the properties of the anchor elements list in the navigational div in the header */
 #header #navigationBanner li a {
   color: #540B2C;
   font-size: 18px;
@@ -66,22 +80,33 @@
   text-transform: uppercase;
 }
 
+/* Sets the creates a button effoect of the list in the navigational div 
+	in the header when hovered over*/
 #header #navigationBanner li a:hover, #header #navigationBanner li.selected a {
   color: #4DBD33;
 }
 
+/*=============================================*/
 /*====================FOOTER===================*/
+/*=============================================*/
+
+/* This sets properties of the footer and parent properties of the child 
+elements*/
 #footer {
 	font-family: "Arial Black", Gadget, sans-serif;
 	background: #540B2C;
 	padding: 25px 0 25px 0;
+	min-width: 450px;
 }
+
+/* Sets properties of the div inside the footer*/
 #footer div {
 	min-width: 450px;
 	margin: 0 auto;
 	overflow: hidden;
 }
 
+/* Sets properties of the paragraph elements inside the footer*/
 #footer div p {
   color: #fff;
   float: left;
@@ -89,16 +114,22 @@
   margin: 0 20px 0 20px;
 }
 
+
+/* Sets properties of the list inside the footer*/
 #footer div ul {
   float: right;
   margin: 0 20px 0 20px;
 }
 
+
+/* Sets properties of the list elements inside the footer*/
 #footer div ul li {
   display: inline-block;
   list-style: none;
   margin: 0 10px 0 10px;
 }
+
+/* Sets properties of the anchor elements inside the footer*/
 #footer div ul li a {
   background: url(../images/icons.jpg) no-repeat 0 0;
   text-indent: -99999px;
@@ -107,35 +138,60 @@
   width: 44px;
 }
 
+/*  These create a button effect on the social media icons at the bottom of the page.
+	They work by using one image which contains a social media icons and a 'highlighter' version
+	of that icon. When hovered over the image is then shifted to the corresponding location to 
+	only display the required version of the social media icon. 
+	
 /* 	These seem duplicated but they all have different offsets in order to 
 	dynamically change the background image */
+	
+/*Sets the Twitter link to get the white on black Twitter logo*/
 #footer div ul li #twitter {
   background-position: 0 0;
 }
+
+/* Sets the Twitter link to get the black on white Twitter logo when moused over */
 #footer div ul li #twitter:hover {
   background-position: -44px 0;
 }
+
+/* Sets the Facebook link to get the white on black Facebook logo*/
 #footer div ul li #facebook {
   background-position: 0 -44px;
 }
+
+/* Sets the Facebook link to get the black on white Facebook logo when hovered*/
 #footer div ul li #facebook:hover {
   background-position: -44px -44px;
 }
+
+/* Sets the Google+ link to get the white on black Google+ logo*/
 #footer div ul li #googleplus {
   background-position: 0 -88px;
 }
+
+/* Sets the Google+ link to get the black on white Google+ logo when hovered*/
 #footer div ul li #googleplus:hover {
   background-position: -44px -88px;
 }
+
+/* Sets the Pintrest link to get the white on black Pintrest logo*/
 #footer div ul li #pinterest {
   background-position: 0 -132px;
 }
+
+/* Sets the Pintrest link to get the black on white Pintrest logo when hovered*/
 #footer div ul li #pinterest:hover {
   background-position: -44px -132px;
 }
 
-/*====================BODY====================*/
+/*=============================================*/
+/*=====================Body====================*/
+/*=============================================*/
 
+/* This sets properties of the body and parent properties of the child 
+elements*/
 #body {
 	font-family: "Arial Black", Gadget, sans-serif;
 	color: #540B2C;
@@ -144,6 +200,7 @@
 	padding: 0px 0 25px 0;
 }
 
+/* This sets properties of the title of the body section */
 #body #title {
 	text-transform: uppercase;
 	font-size: 35px;
@@ -152,6 +209,8 @@
 	padding: 10px 15px 10px 15px;
 }
 
+/* This sets properties of all elements of the class test in the body.
+	Normally used to display info information of a park on a park page*/
 #body .text {
 	margin: 25px auto 25px auto;
 	font-family: Arial, Helvetica, sans-serif;
@@ -160,6 +219,8 @@
 	text-align: left;
 }
 
+/* This sets properties of all elements of the class error in the body.
+	Normally used to display the session error at the top of the body*/
 #body .error {
 	color: #ff4500;
 	margin: 25px auto 25px auto;
@@ -169,6 +230,7 @@
 	text-align: center;
 }
 
+/* This sets properties of the google maps used on the results and park pages*/
 #body .googleMap {
   margin: 30px auto;
   display: block;
@@ -176,18 +238,26 @@
   height: 300px;
 }
 
+/*=============================================*/
+/*===================Homepage==================*/
+/*=============================================*/
+
+/* This sets properties specific to the homepage,
+	Note: these extend the body properties*/
 #homepage {
 	position: relative;
 	margin-top: 35px;
-	width: 100%;
+	min-width: 450px;
 }
 
+/* This sets properties for the image on the homepage */
 #homepage img {
-  width: 100%;
+	min-width: 100%;
 }
 
+/* This sets properties of the center content container on top of the homepage image */
 #homepage #center-content {
-	
+	min-width: 200px;
 	position: absolute;
 	top: 0;
 	left: 50%;
@@ -196,6 +266,7 @@
 	width: auto;
 }
 
+/* This sets properties of the center content heading on top of the homepage image */
 #homepage #center-content h2 {
 	display: inline-block;
 	background: #fff;
@@ -205,6 +276,7 @@
 	text-transform: uppercase;
 }
 
+/* This sets properties of the center content description on top of the homepage image */
 #homepage #center-content span {
 	display: inline-block;
 	background: #540B2C;
@@ -213,27 +285,31 @@
 	padding: 25px;
 }
 
+/* This sets properties of the center content buttons on top of the homepage image */
 #homepage #center-content a {
 	display: inline-block;
 	background: #4DBD33;
 	color: #fff;
 	font-size: 18px;
 	margin: 15px 0 0;
-	padding: 25px;
+	padding: 3%;
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
 }
 
+/* This changes of the center content buttons when hovered over */
 #homepage #center-content a:hover {
   background: #1fc3bc;
 }
 
+/* This sets properties of the categories container on the homepage */
 #body #categories{ 
 	display: inline-block;
 	margin: 15px 0 15px 0;
 }
 
+/* This sets properties of the categories anchors on the homepage */
 #body #categories a {
 	display: inline-block;
 	width: 31%;
@@ -246,11 +322,13 @@
 	margin: 15px 1.5% 15px 1.5%;
 }
 
+/* This sets properties of the categories labels on the homepage */
 #body #categories a p {
   display: block;
   margin: 10px;
 }
 
+/* This sets properties of the categories images on the homepage */
 #body #categories a img {
 	margin: 0 auto 0 auto;
   border: 2px solid #1a1a1a;
@@ -261,23 +339,24 @@
   transition: 0.2s ease-in-out;
 }
 
+/* This changes the opacity of the categories images when hovered over */
 #body #categories a:hover img {
   opacity: 1;
 }
 
-#body #reviews h1{
-  text-align: center;
-}
 
+/*=============================================*/
+/*===================Forms==================*/
+/*=============================================*/
+
+/* This sets properties for all forms on the website */
 #body form {
   margin: 0 auto;
   max-width: 450px;
 }
 
-#body form #rbuttons {
-	Height: 50px;
-}
-
+/* This sets the properties form all input, div and select elements
+	in the forms on all web pages*/
 #body form input, #body form div, #body form select{
 	padding: 0 5% 0 5%;
 	min-height: 50px;
@@ -288,26 +367,33 @@
 	display: inline-block;
 }
 
-#body form input, #body form div{
-	width: 90%;
-}
-
+/* This sets the widths of select elements in the forms */
 #body form select{
 	width: 100%;
 }
 
+/* This sets the widths of both input and div elements in the forms.
+	Note: the size of these need to be different to that of the select elements.
+	Select elements seem to have smaller in widths than input and div*/
+#body form input, #body form div{
+	width: 90%;
+}
+
+/* This sets the properties a radio selection container */
 #body form #rbuttons {
 	Height: 50px;
 	display:inline-block;
 	text-align: center;
 }
 
+/* This sets the properties a radio selection input */
 #body form #rbuttons input {
 	vertical-align:top;
 	width: 20px;
 	margin: 0 0 0 10px;
 }
 
+/* This sets the properties a radio selection input label */
 #body form #rbuttons span {
 	vertical-align:top;
 	font-family: Arial, Helvetica, sans-serif;
@@ -316,6 +402,7 @@
 	margin: 0 10px 0 0;
 }
 
+/* Sets the submit buttons of a form */
 #body form .submit {
 	width: 101%;
 	background: #540B2C;
@@ -325,11 +412,13 @@
 	text-align: center;
 }
 
+/* Sets the submit buttons of a form to have different look when hovered over */
 #body form .submit:hover {
   background: #fff;
   color: #540B2C;
 }
 
+/* Sets properties for the button to search via the user's location */
 #body form #location{
 	display: inline-block;
 	width: 99%;
@@ -342,11 +431,13 @@
 	text-align: center;
 }
 
+/* Sets the location search button to have a different style when hovered over */
 #body form #location:hover{
 	background: #fff;
 	color: #540B2C;
 }
 
+/* Sets the text within the location button to sit correctly */
 #body form #location span {
 	font-family: Arial, Helvetica, sans-serif;
 	height:50px;
@@ -365,6 +456,7 @@
   border: 1px solid #540B2C;
 }
 
+/* Sets the border of the results table */
 #body #results th,tr, td {
   border: 1px solid #540B2C;
 }
@@ -375,26 +467,28 @@
 	color: #540B2C;
 }
 
-#body #results #park_title {
-	color: #540B2C;
-}
-
+/* Sets the text to change colour when hovered over */
 #body #results #park_title:hover {
 	color: #4DBD33;
 }
 
+/* Prevents links to parks in table being displayed as links */
 #body #results tr td a {
   color: #540B2C;
   text-decoration: none;
   
 }
 
+/* Sets the style for the table column headings */
 #body #results tr th {
   padding: 10px 5px;
   color: #fff;
   background: #540B2C;
 }
 
+#body #reviews h1{
+  text-align: center;
+}
 
 
 

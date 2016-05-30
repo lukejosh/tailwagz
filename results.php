@@ -28,7 +28,6 @@ if (!is_array($results_data)){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Park Reviews</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
     <script type="text/javascript" src="js/javascript.js">
 		// These variables are global variables used for the map
         var map;
