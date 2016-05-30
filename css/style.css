@@ -469,7 +469,7 @@ elements*/
 }
 
 /* Sets the text to change colour when hovered over */
-#body #results #park_title:hover {
+#body #results .park_title:hover {
 	color: #4DBD33;
 }
 

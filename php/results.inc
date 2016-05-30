@@ -190,11 +190,11 @@
 		
 		// For each park in the search results , add a table row
 		foreach($results_data as $park){
-			echo "<tr id=\"row\">";
-			echo "<td ><a id='park_title' href=\"park.php?id=".$park['parkid']."\">".$park['name']."<a></td>";
-			echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['suburb'].", ".$park['street']."<a></td>";
-			echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['category']."<a></td>";
-			echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['rating']."<a></td>";
+			echo "<tr>";
+			echo "<td ><a class='park_title' href=\"park.php?id=".$park['parkid']."\">".$park['name']."</a></td>";
+			echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['suburb'].", ".$park['street']."</a></td>";
+			echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['category']."</a></td>";
+			echo "<td><a href=\"park.php?id=".$park['parkid']."\">".$park['rating']."</a></td>";
 			echo "</tr>";
 		}
 		
