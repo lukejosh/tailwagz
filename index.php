@@ -63,6 +63,7 @@ session_start();
 				<p>Big</p>
 			</a>
 		</div>
+	</div>
     <!-- Footer -->
     <?php include 'components/footer.inc'; ?>
 </body>
