@@ -278,10 +278,6 @@
 	Height: 50px;
 }
 
-#body form p {
-
-}
-
 #body form input, #body form div, #body form select{
 	padding: 0 5% 0 5%;
 	min-height: 50px;

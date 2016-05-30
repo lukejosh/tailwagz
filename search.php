@@ -72,7 +72,8 @@ if (!empty($_GET)) {
 		<?php display_error_message();?> 
 		<form action="search.php">
 			<!-- Search by location button and distance option section -->
-			<p>Search by location</p>
+			<h2>Search by location</h2>
+			<p>Select a maximum distance</p>
 			<select name="distance" id="distance" onchange="revert_other_searches('distance')">
 				<!-- For each option if value was previously selected then select it again -->
 				<option value="1" <?php if($preset_distance == "1"){echo "selected";}?> >< 1km</option>
@@ -83,12 +84,14 @@ if (!empty($_GET)) {
 			</select>
 			<a  id="location" onclick="user_location_link();"><span>Search By Location</span></a>
 			<!-- Search by suburb, rating, category and keyword section -->
-			<p>or select one of the following</p>
+			<h2>Or select one of the following</h2>
+			<span>Select a suburb</span>
 			<select name="suburb" id="suburb" onchange="revert_other_searches('suburb')">
 				<option value="">Select a suburb</option>
 				<!-- Use function to retrieve all suburbs for database and populate the suburb option field -->
 				<?php add_suburb_options($preset_suburb);?>
 			</select>
+			<span>Select a minimum rating</span>
 			<select name="rating" id="rating" onchange="revert_other_searches('rating')">
 				<option value="">Select a minimum rating</option>
 				<!-- For each option if value was previously selected then select it again -->
@@ -97,7 +100,7 @@ if (!empty($_GET)) {
 				<option value="3" <?php if($preset_rating == "3"){echo "selected";}?>>> 3 Stars</option>
 				<option value="4" <?php if($preset_rating == "4"){echo "selected";}?>>> 4 Stars</option>
 			</select>
-
+			<span>Select a park category</span>
 			<select name="category" id="category" onchange="revert_other_searches('category')">
 				<option value="">Select a category</option>
 				<!-- For each option if value was previously selected then select it again -->
@@ -108,6 +111,7 @@ if (!empty($_GET)) {
 				<option value="busy" <?php if($preset_category == "busy"){echo "selected";}?>>Busy</option>
 				<option value="big" <?php if($preset_category == "big"){echo "selected";}?>>Big</option>
 			</select>
+			<span>Search by keyword</span>
 			<input type="text" name="search" id="search" value="" placeholder="Keyword" onchange="revert_other_searches('search')">
 			<input type="submit" class="submit" id="search_btn" value="Search">
 		</form>
