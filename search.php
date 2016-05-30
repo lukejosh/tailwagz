@@ -111,7 +111,7 @@ if (!empty($_GET)) {
 				<option value="big" <?php if($preset_category == "big"){echo "selected";}?>>Big</option>
 			</select>
 			<span>Search by keyword</span>
-			<input type="text" name="search" id="search" value="" placeholder="Keyword" onchange="revert_other_searches('search')">
+			<input type="text" name="search" id="search" value="<?php echo $preset_search; ?>"  placeholder="Keyword" onchange="revert_other_searches('search')">
 			<input type="submit" class="submit" id="search_btn" value="Search">
 		</form>
 	</div>
