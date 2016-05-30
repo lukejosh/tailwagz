@@ -102,9 +102,9 @@
 
 		if (isset($_SESSION['username']))
 		{
-			echo "Signed in as <b>".$_SESSION['username'];
+			echo "Signed in as <b>".$_SESSION['username']."</b>";
 		}
-		echo '</b></p>';
+		echo '</p>';
 	}
 
 	// Function: display_session_actions()
