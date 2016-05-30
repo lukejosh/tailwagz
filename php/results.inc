@@ -50,6 +50,17 @@
 		return perform_sql_query($query, null);
 	}
 
+	// Function:  get_parks_by_suburb($suburb)
+	// Description: a function to get all parks by a suburb
+	// Input: the suburb
+	// Output: all parks matching the suburb
+	function get_parks_by_suburb($suburb){
+		$lower_string = strtolower($suburb);
+		$query = "SELECT * FROM parks WHERE LOWER(suburb) = \"".$lower_string."\"";
+
+		return perform_sql_query($query, null);
+	}
+
 	// Function:  get_search_results(){
 	// Description: a complex function to get search results based on the set GET request parameters
 	// Input: none
@@ -109,6 +120,12 @@
 				else if ($field == 'category'){
 					 $result = get_parks_by_category($value);
 					 break;
+				}
+
+				// If the set field is suburb
+				else if ($field == 'suburb'){
+					$result = get_parks_by_suburb($value);
+					break;
 				}
 			}
 
