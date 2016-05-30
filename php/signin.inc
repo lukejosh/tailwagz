@@ -58,7 +58,7 @@
 				<input type='text' name='username' id='username' placeholder='Username' value='".$username."' required/>
 				<span>Password</span>
 				<input type='password' name='password' id='password' placeholder='Password' value='".$password."' required/>
-				<input type='submit' class='submit' name='signin' id='signin' value='Sign In'/>
+				<input type='submit' class='submit' name='signin' id='signinsubmit' value='Sign In'/>
 			</form>";
 	}
 ?>
