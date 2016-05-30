@@ -75,11 +75,11 @@ if (!empty($_GET)) {
 			<p>Select a maximum distance</p>
 			<select name="distance" id="distance" onchange="revert_other_searches('distance')">
 				<!-- For each option if value was previously selected then select it again -->
-				<option value="1" <?php if($preset_distance == "1"){echo "selected";}?> >< 1km</option>
-				<option value="5" <?php if($preset_distance == "5"){echo "selected";}?>>< 5km</option>
-				<option value="10" <?php if($preset_distance == "10"){echo "selected";}?>>< 10km</option>
-				<option value="20" <?php if($preset_distance == "20"){echo "selected";}?>>< 20km</option>
-				<option value="50" <?php if($preset_distance == "50"){echo "selected";}?>>< 50km</option>
+				<option value="1" <?php if($preset_distance == "1"){echo "selected";}?>> &lt; 1km</option>
+				<option value="5" <?php if($preset_distance == "5"){echo "selected";}?>> < &lt; </option>
+				<option value="10" <?php if($preset_distance == "10"){echo "selected";}?>> &lt; 10km</option>
+				<option value="20" <?php if($preset_distance == "20"){echo "selected";}?>> &lt; 20km</option>
+				<option value="50" <?php if($preset_distance == "50"){echo "selected";}?>> &lt; 50km</option>
 			</select>
 			<a  id="location" onclick="user_location_link();"><span>Search By Location</span></a>
 			<!-- Search by suburb, rating, category and keyword section -->
@@ -94,10 +94,10 @@ if (!empty($_GET)) {
 			<select name="rating" id="rating" onchange="revert_other_searches('rating')">
 				<option value="">Select a minimum rating</option>
 				<!-- For each option if value was previously selected then select it again -->
-				<option value="1" <?php if($preset_rating == "1"){echo "selected";}?>>> 1 Star</option>
-				<option value="2" <?php if($preset_rating == "2"){echo "selected";}?>>> 2 Stars</option>
-				<option value="3" <?php if($preset_rating == "3"){echo "selected";}?>>> 3 Stars</option>
-				<option value="4" <?php if($preset_rating == "4"){echo "selected";}?>>> 4 Stars</option>
+				<option value="1" <?php if($preset_rating == "1"){echo "selected";}?>>&gt; 1 Star</option>
+				<option value="2" <?php if($preset_rating == "2"){echo "selected";}?>>&gt; 2 Stars</option>
+				<option value="3" <?php if($preset_rating == "3"){echo "selected";}?>>&gt; 3 Stars</option>
+				<option value="4" <?php if($preset_rating == "4"){echo "selected";}?>>&gt; 4 Stars</option>
 			</select>
 			<span>Select a park category</span>
 			<select name="category" id="category" onchange="revert_other_searches('category')">
