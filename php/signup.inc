@@ -136,7 +136,7 @@
 				<input type='password' name='password' id='password' placeholder='Password' required/>
 				<span>Confirm Password</span>
 				<input type='password' name='confpassword' id='confpassword' placeholder='Confirm Password' onchange='validate_password();' required/>
-				<input type='submit' class='submit' name='signup' id='signup' value='Sign Up'/>
+				<input type='submit' class='submit' name='signup' id='signupsubmit' value='Sign Up'/>
 			</form>";
 	}
 ?>
